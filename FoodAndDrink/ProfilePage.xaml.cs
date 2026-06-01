@@ -1,10 +1,34 @@
+using FoodAndDrink.Services;
+
 namespace FoodAndDrink
 {
     public partial class ProfilePage : ContentPage
     {
-        public ProfilePage()
+        private readonly FoodItemService _foodItemService;
+
+        public ProfilePage(FoodItemService foodItemService)
         {
             InitializeComponent();
+            _foodItemService = foodItemService;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await LoadStatsAsync();
+        }
+
+        private async Task LoadStatsAsync()
+        {
+            try
+            {
+                StatFavorites.Text = (await _foodItemService.GetFavoriteCountAsync()).ToString();
+                StatReviews.Text = (await _foodItemService.GetViewedCountAsync()).ToString();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[ProfilePage] Stats error: {ex.Message}");
+            }
         }
 
         private void OnDietaryToggleChanged(object sender, ToggledEventArgs e)
@@ -25,7 +49,12 @@ namespace FoodAndDrink
 
         private void OnTextSizeChanged(object sender, ValueChangedEventArgs e)
         {
-            // Adjust text size scaling
+            if (e.NewValue < 0.33)
+                TextSizeLabel.Text = "Small";
+            else if (e.NewValue < 0.66)
+                TextSizeLabel.Text = "Medium";
+            else
+                TextSizeLabel.Text = "Large";
         }
 
         private async void OnLogoutClicked(object sender, EventArgs e)

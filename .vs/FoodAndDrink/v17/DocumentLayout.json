@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "G:\\Mobile\\Assessment\\FoodAndDrink\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +42,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DatabaseService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\DatabaseService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\DatabaseService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\DatabaseService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\DatabaseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T07:52:48.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\CategoryService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\CategoryService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\CategoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T07:21:35.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ProfilePage.xaml",
               "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ProfilePage.xaml",
               "RelativeDocumentMoniker": "FoodAndDrink\\ProfilePage.xaml",
@@ -47,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\MainPage.xaml",
               "RelativeDocumentMoniker": "FoodAndDrink\\MainPage.xaml",
@@ -59,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AppShell.xaml",
               "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\AppShell.xaml",
               "RelativeDocumentMoniker": "FoodAndDrink\\AppShell.xaml",

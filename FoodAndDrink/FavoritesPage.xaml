@@ -20,10 +20,12 @@
                    FontSize="32"
                    FontAttributes="Bold"
                    FontFamily="OpenSansSemibold"
+                   AutomationProperties.Name="Favorites"
                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                Dark={StaticResource TextDark}}" />
             <Label Text="Your saved dishes and places"
                    FontSize="14"
+                   AutomationProperties.Name="Your saved dishes and places"
                    TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                Dark={StaticResource TextDimDark}}" />
         </VerticalStackLayout>
@@ -31,288 +33,87 @@
         <!-- ===== Content ===== -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="24" Padding="28,16,28,48">
-
-                <!-- Filter Tabs -->
-                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                    <HorizontalStackLayout Spacing="10">
-                        <Frame BackgroundColor="{StaticResource Primary}"
-                               BorderColor="Transparent"
-                               CornerRadius="20" Padding="20,10"
-                               HasShadow="False">
-                            <Label Text="All" FontSize="14" FontAttributes="Bold"
-                                   TextColor="{StaticResource White}" />
-                        </Frame>
-                        <Frame BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
-                               BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
-                               CornerRadius="20" Padding="20,10" HasShadow="False">
-                            <Label Text="" FontSize="14"
-                                   TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                               Dark={StaticResource TextDark}}" />
-                        </Frame>
-                        <Frame BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
-                               BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
-                               CornerRadius="20" Padding="20,10" HasShadow="False">
-                            <Label Text="" FontSize="14"
-                                   TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                               Dark={StaticResource TextDark}}" />
-                        </Frame>
-                        <Frame BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
-                               BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
-                               CornerRadius="20" Padding="20,10" HasShadow="False">
-                            <Label Text="" FontSize="14"
-                                   TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                               Dark={StaticResource TextDark}}" />
-                        </Frame>
-                    </HorizontalStackLayout>
-                </ScrollView>
-
-                <!-- Collections -->
-                <VerticalStackLayout Spacing="6">
-                    <BoxView WidthRequest="24" HeightRequest="3"
-                             CornerRadius="2"
-                             Color="{StaticResource Tertiary}" />
-                    <Label Text="Collections" FontSize="16" FontAttributes="Bold"
-                           FontFamily="OpenSansSemibold"
-                           TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                       Dark={StaticResource TextDark}}" />
-                </VerticalStackLayout>
-                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                    <HorizontalStackLayout Spacing="14">
-                        <Frame WidthRequest="240" HeightRequest="140" Padding="18"
-                               BackgroundColor="{StaticResource PrimaryLight}"
-                               BorderColor="Transparent"
-                               CornerRadius="16" HasShadow="False">
-                            <VerticalStackLayout VerticalOptions="End" Spacing="6">
-                                <Label Text="" FontSize="28" />
-                                <Label Text=""
-                                       FontSize="18" FontAttributes="Bold"
-                                       FontFamily="OpenSansSemibold"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                                   Dark={StaticResource TextDark}}" />
-                                <Label Text=""
-                                       FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                   Dark={StaticResource TextDimDark}}" />
-                            </VerticalStackLayout>
-                        </Frame>
-                        <Frame WidthRequest="240" HeightRequest="140" Padding="18"
-                               BackgroundColor="{StaticResource SecondaryLight}"
-                               BorderColor="Transparent"
-                               CornerRadius="16" HasShadow="False">
-                            <VerticalStackLayout VerticalOptions="End" Spacing="6">
-                                <Label Text="" FontSize="28" />
-                                <Label Text=""
-                                       FontSize="18" FontAttributes="Bold"
-                                       FontFamily="OpenSansSemibold"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                                   Dark={StaticResource TextDark}}" />
-                                <Label Text=""
-                                       FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                   Dark={StaticResource TextDimDark}}" />
-                            </VerticalStackLayout>
-                        </Frame>
-                        <Frame WidthRequest="240" HeightRequest="140" Padding="18"
-                               BackgroundColor="{StaticResource TertiaryLight}"
-                               BorderColor="Transparent"
-                               CornerRadius="16" HasShadow="False">
-                            <VerticalStackLayout VerticalOptions="End" Spacing="6">
-                                <Label Text="" FontSize="28" />
-                                <Label Text=""
-                                       FontSize="18" FontAttributes="Bold"
-                                       FontFamily="OpenSansSemibold"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                                   Dark={StaticResource TextDark}}" />
-                                <Label Text=""
-                                       FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                   Dark={StaticResource TextDimDark}}" />
-                            </VerticalStackLayout>
-                        </Frame>
-                    </HorizontalStackLayout>
-                </ScrollView>
-
-                <!-- Saved Items List -->
                 <VerticalStackLayout Spacing="6">
                     <BoxView WidthRequest="24" HeightRequest="3"
                              CornerRadius="2"
                              Color="{StaticResource Primary}" />
                     <Label Text="Saved Items" FontSize="16" FontAttributes="Bold"
                            FontFamily="OpenSansSemibold"
+                           AutomationProperties.Name="Saved items list"
                            TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                        Dark={StaticResource TextDark}}" />
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="10">
-                    <!-- Item 1 -->
-                    <Frame Padding="0" HasShadow="False"
-                           BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
-                           BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}">
-                        <Grid ColumnDefinitions="72,*,Auto"
-                              ColumnSpacing="14" Padding="12">
-                            <BoxView Grid.Column="0"
-                                     CornerRadius="12"
-                                     Color="{StaticResource PrimaryLight}" />
-                            <VerticalStackLayout Grid.Column="1"
-                                                 VerticalOptions="Center" Spacing="4">
-                                <Label Text=""
-                                       FontSize="16" FontAttributes="Bold"
-                                       FontFamily="OpenSansSemibold"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                                   Dark={StaticResource TextDark}}" />
-                                <Label Text=""
-                                       FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                   Dark={StaticResource TextDimDark}}" />
-                                <HorizontalStackLayout Spacing="6">
-                                    <Label Text="" FontSize="12" FontAttributes="Bold"
-                                           TextColor="{StaticResource Tertiary}" />
-                                    <Label Text="" FontSize="12"
-                                           TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                      Dark={StaticResource TextDimDark}}" />
-                                </HorizontalStackLayout>
-                            </VerticalStackLayout>
-                            <Frame Grid.Column="2"
-                                   WidthRequest="44" HeightRequest="44"
-                                   CornerRadius="14" Padding="0"
-                                   HasShadow="False"
-                                   BackgroundColor="{StaticResource Primary}"
-                                   BorderColor="Transparent"
-                                   VerticalOptions="Center">
-                                <Label Text="♥" FontSize="18"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       TextColor="{StaticResource White}" />
+                <VerticalStackLayout x:Name="FavoritesListStack" Spacing="10">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="0" HasShadow="False" CornerRadius="16"
+                                   BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
+                                   BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnItemTapped"
+                                                          CommandParameter="{Binding Id}" />
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnDefinitions="72,*,Auto"
+                                      ColumnSpacing="14" Padding="12">
+                                    <Frame Grid.Column="0"
+                                           CornerRadius="12" Padding="0"
+                                           HasShadow="False"
+                                           BackgroundColor="{StaticResource PrimaryLight}"
+                                           BorderColor="Transparent">
+                                        <Label Text="{Binding IconEmoji}" FontSize="30"
+                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Frame>
+                                    <VerticalStackLayout Grid.Column="1"
+                                                         VerticalOptions="Center" Spacing="4">
+                                        <Label Text="{Binding Name}"
+                                               FontSize="16" FontAttributes="Bold"
+                                               FontFamily="OpenSansSemibold"
+                                               AutomationProperties.Name="{Binding Name}"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                                           Dark={StaticResource TextDark}}" />
+                                        <Label Text="{Binding Subtitle}"
+                                               FontSize="13"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                                           Dark={StaticResource TextDimDark}}" />
+                                        <HorizontalStackLayout Spacing="6">
+                                            <Label FontSize="12" FontAttributes="Bold"
+                                                   TextColor="{StaticResource Tertiary}">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="★ " />
+                                                        <Span Text="{Binding Rating, StringFormat='{0:F1}'}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label Text="{Binding ReviewCount, StringFormat='({0})'}"
+                                                   FontSize="12"
+                                                   TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                                              Dark={StaticResource TextDimDark}}" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                    <Frame Grid.Column="2"
+                                           WidthRequest="44" HeightRequest="44"
+                                           CornerRadius="14" Padding="0"
+                                           HasShadow="False"
+                                           BackgroundColor="{StaticResource Primary}"
+                                           BorderColor="Transparent"
+                                           VerticalOptions="Center"
+                                           AutomationProperties.Name="Remove from favorites"
+                                           AutomationProperties.HelpText="Tap to remove this item from your favorites">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnUnfavoriteTapped"
+                                                                  CommandParameter="{Binding Id}" />
+                                        </Frame.GestureRecognizers>
+                                        <Label Text="♥" FontSize="18"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               TextColor="{StaticResource White}" />
+                                    </Frame>
+                                </Grid>
                             </Frame>
-                        </Grid>
-                    </Frame>
-                    <!-- Item 2 -->
-                    <Frame Padding="0" HasShadow="False"
-                           BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
-                           BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}">
-                        <Grid ColumnDefinitions="72,*,Auto"
-                              ColumnSpacing="14" Padding="12">
-                            <BoxView Grid.Column="0"
-                                     CornerRadius="12"
-                                     Color="{StaticResource SecondaryLight}" />
-                            <VerticalStackLayout Grid.Column="1"
-                                                 VerticalOptions="Center" Spacing="4">
-                                <Label Text=""
-                                       FontSize="16" FontAttributes="Bold"
-                                       FontFamily="OpenSansSemibold"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                                   Dark={StaticResource TextDark}}" />
-                                <Label Text=""
-                                       FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                   Dark={StaticResource TextDimDark}}" />
-                                <HorizontalStackLayout Spacing="6">
-                                    <Label Text="" FontSize="12" FontAttributes="Bold"
-                                           TextColor="{StaticResource Tertiary}" />
-                                    <Label Text="" FontSize="12"
-                                           TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                      Dark={StaticResource TextDimDark}}" />
-                                </HorizontalStackLayout>
-                            </VerticalStackLayout>
-                            <Frame Grid.Column="2"
-                                   WidthRequest="44" HeightRequest="44"
-                                   CornerRadius="14" Padding="0"
-                                   HasShadow="False"
-                                   BackgroundColor="{StaticResource Secondary}"
-                                   BorderColor="Transparent"
-                                   VerticalOptions="Center">
-                                <Label Text="♥" FontSize="18"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       TextColor="{StaticResource White}" />
-                            </Frame>
-                        </Grid>
-                    </Frame>
-                    <!-- Item 3 -->
-                    <Frame Padding="0" HasShadow="False"
-                           BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
-                           BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}">
-                        <Grid ColumnDefinitions="72,*,Auto"
-                              ColumnSpacing="14" Padding="12">
-                            <BoxView Grid.Column="0"
-                                     CornerRadius="12"
-                                     Color="{StaticResource TertiaryLight}" />
-                            <VerticalStackLayout Grid.Column="1"
-                                                 VerticalOptions="Center" Spacing="4">
-                                <Label Text=""
-                                       FontSize="16" FontAttributes="Bold"
-                                       FontFamily="OpenSansSemibold"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                                   Dark={StaticResource TextDark}}" />
-                                <Label Text=""
-                                       FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                   Dark={StaticResource TextDimDark}}" />
-                                <HorizontalStackLayout Spacing="6">
-                                    <Label Text="" FontSize="12" FontAttributes="Bold"
-                                           TextColor="{StaticResource Tertiary}" />
-                                    <Label Text="" FontSize="12"
-                                           TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                      Dark={StaticResource TextDimDark}}" />
-                                </HorizontalStackLayout>
-                            </VerticalStackLayout>
-                            <Frame Grid.Column="2"
-                                   WidthRequest="44" HeightRequest="44"
-                                   CornerRadius="14" Padding="0"
-                                   HasShadow="False"
-                                   BackgroundColor="{StaticResource Tertiary}"
-                                   BorderColor="Transparent"
-                                   VerticalOptions="Center">
-                                <Label Text="♥" FontSize="18"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       TextColor="{StaticResource White}" />
-                            </Frame>
-                        </Grid>
-                    </Frame>
-                    <!-- Item 4 -->
-                    <Frame Padding="0" HasShadow="False"
-                           BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
-                           BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}">
-                        <Grid ColumnDefinitions="72,*,Auto"
-                              ColumnSpacing="14" Padding="12">
-                            <BoxView Grid.Column="0"
-                                     CornerRadius="12"
-                                     Color="{StaticResource PrimaryLight}" />
-                            <VerticalStackLayout Grid.Column="1"
-                                                 VerticalOptions="Center" Spacing="4">
-                                <Label Text=""
-                                       FontSize="16" FontAttributes="Bold"
-                                       FontFamily="OpenSansSemibold"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
-                                                                   Dark={StaticResource TextDark}}" />
-                                <Label Text=""
-                                       FontSize="13"
-                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                   Dark={StaticResource TextDimDark}}" />
-                                <HorizontalStackLayout Spacing="6">
-                                    <Label Text="" FontSize="12" FontAttributes="Bold"
-                                           TextColor="{StaticResource Tertiary}" />
-                                    <Label Text="" FontSize="12"
-                                           TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                                      Dark={StaticResource TextDimDark}}" />
-                                </HorizontalStackLayout>
-                            </VerticalStackLayout>
-                            <Frame Grid.Column="2"
-                                   WidthRequest="44" HeightRequest="44"
-                                   CornerRadius="14" Padding="0"
-                                   HasShadow="False"
-                                   BackgroundColor="{StaticResource Primary}"
-                                   BorderColor="Transparent"
-                                   VerticalOptions="Center">
-                                <Label Text="♥" FontSize="18"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       TextColor="{StaticResource White}" />
-                            </Frame>
-                        </Grid>
-                    </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
-
             </VerticalStackLayout>
         </ScrollView>
 
@@ -332,18 +133,21 @@
                    FontSize="18" FontAttributes="Bold"
                    HorizontalOptions="Center"
                    FontFamily="OpenSansSemibold"
+                   AutomationProperties.Name="No favorites yet"
                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                Dark={StaticResource TextDark}}" />
             <Label Text="Tap the heart icon on any item to save it here"
                    FontSize="14"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center"
+                   AutomationProperties.Name="Tap the heart icon on any item to save it here"
                    TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                Dark={StaticResource TextDimDark}}" />
             <Button Text="Explore Dishes"
                     BackgroundColor="{StaticResource Primary}"
                     CornerRadius="14"
                     HorizontalOptions="Center"
+                    AutomationProperties.Name="Explore dishes"
                     Margin="0,8,0,0" />
         </VerticalStackLayout>
 

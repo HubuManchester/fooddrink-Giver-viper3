@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
+using FoodAndDrink.Services;
+using Microsoft.Extensions.Logging;
 
 namespace FoodAndDrink
 {
@@ -9,14 +11,27 @@ namespace FoodAndDrink
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<DatabaseService>();
+            builder.Services.AddSingleton<FoodItemService>();
+            builder.Services.AddSingleton<CategoryService>();
+            builder.Services.AddSingleton<LocationService>();
+
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<ExplorePage>();
+            builder.Services.AddTransient<FavoritesPage>();
+            builder.Services.AddTransient<ProfilePage>();
+            builder.Services.AddTransient<DetailPage>();
+            builder.Services.AddTransient<ItemListPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

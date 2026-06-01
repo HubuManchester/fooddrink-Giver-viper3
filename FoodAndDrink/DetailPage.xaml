@@ -16,7 +16,17 @@
                    CornerRadius="0"
                    HeightRequest="280"
                    BackgroundColor="{StaticResource PrimaryLight}"
-                   BorderColor="Transparent" />
+                   BorderColor="Transparent">
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="12">
+                    <Label x:Name="HeroEmoji" Text="🍽️" FontSize="64"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="HeroCategory" Text="" FontSize="14"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                       Dark={StaticResource TextDimDark}}" />
+                </VerticalStackLayout>
+            </Frame>
 
             <!-- ===== Content ===== -->
             <VerticalStackLayout Spacing="24"
@@ -30,22 +40,29 @@
                                Text=""
                                FontSize="24" FontAttributes="Bold"
                                FontFamily="OpenSansSemibold"
+                               AutomationProperties.Name="Item name"
                                TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                            Dark={StaticResource TextDark}}" />
                         <Label x:Name="ItemSubtitle"
                                Text=""
                                FontSize="14"
+                               AutomationProperties.Name="Item subtitle"
                                TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                            Dark={StaticResource TextDimDark}}" />
                     </VerticalStackLayout>
-                    <Frame Grid.Column="1"
+                    <Frame x:Name="FavoriteBtn" Grid.Column="1"
                            WidthRequest="48" HeightRequest="48"
                            CornerRadius="15" Padding="0"
                            HasShadow="False"
                            BackgroundColor="{StaticResource Primary}"
                            BorderColor="Transparent"
+                           AutomationProperties.Name="Add to favorites"
+                           AutomationProperties.HelpText="Tap to save this item to your favorites list"
                            VerticalOptions="Center">
-                        <Label Text="♥" FontSize="20"
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnFavoriteClicked" />
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="FavoriteBtnContent" Text="♡" FontSize="20"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                TextColor="{StaticResource White}" />
@@ -56,6 +73,8 @@
                            HasShadow="False"
                            BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
                            BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                           AutomationProperties.Name="Share"
+                           AutomationProperties.HelpText="Tap to share this item"
                            VerticalOptions="Center">
                         <Label Text="↗" FontSize="20"
                                HorizontalOptions="Center"
@@ -70,11 +89,12 @@
                     <Frame BackgroundColor="{StaticResource TertiaryLight}"
                            BorderColor="Transparent"
                            CornerRadius="14" Padding="14,8"
-                           HasShadow="False">
+                           HasShadow="False"
+                           AutomationProperties.Name="Rating">
                         <HorizontalStackLayout Spacing="6">
                             <Label Text="★" FontSize="14"
                                    TextColor="{StaticResource Tertiary}" />
-                            <Label Text="" FontSize="13" FontAttributes="Bold"
+                            <Label x:Name="RatingLabel" Text="" FontSize="13" FontAttributes="Bold"
                                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                                Dark={StaticResource TextDark}}" />
                         </HorizontalStackLayout>
@@ -83,14 +103,16 @@
                            BorderColor="Transparent"
                            CornerRadius="14" Padding="14,8"
                            HasShadow="False">
-                        <Label Text="" FontSize="13" FontAttributes="Bold"
+                        <Label x:Name="PriceChipLabel" Text="" FontSize="13" FontAttributes="Bold"
+                               AutomationProperties.Name="Price tier"
                                TextColor="{StaticResource Secondary}" />
                     </Frame>
                     <Frame BackgroundColor="{StaticResource PrimaryLight}"
                            BorderColor="Transparent"
                            CornerRadius="14" Padding="14,8"
                            HasShadow="False">
-                        <Label Text="" FontSize="13" FontAttributes="Bold"
+                        <Label x:Name="DistanceChipLabel" Text="" FontSize="13" FontAttributes="Bold"
+                               AutomationProperties.Name="Distance"
                                TextColor="{StaticResource Primary}" />
                     </Frame>
                 </HorizontalStackLayout>
@@ -109,16 +131,19 @@
                         <Label Text="Description"
                                FontSize="14" FontAttributes="Bold"
                                FontFamily="OpenSansSemibold"
+                               AutomationProperties.Name="Description section"
                                TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                            Dark={StaticResource TextDark}}" />
                     </HorizontalStackLayout>
                     <Label x:Name="DescriptionText"
                            Text=""
-                           Style="{StaticResource BodyText}" />
+                           Style="{StaticResource BodyText}"
+                           AutomationProperties.Name="Description text" />
                 </VerticalStackLayout>
 
                 <!-- Info Card -->
-                <Frame>
+                <Frame
+                       AutomationProperties.Name="Details card">
                     <VerticalStackLayout Spacing="0">
                         <HorizontalStackLayout Spacing="8" Margin="0,0,0,16">
                             <BoxView WidthRequest="3" HeightRequest="16"
@@ -135,8 +160,9 @@
                                    FontSize="13"
                                    TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                                Dark={StaticResource TextDimDark}}" />
-                            <Label Grid.Column="1" Text=""
+                            <Label x:Name="CuisineValue" Grid.Column="1" Text=""
                                    FontSize="14" FontAttributes="Bold"
+                                   AutomationProperties.Name="Cuisine"
                                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                                Dark={StaticResource TextDark}}" />
                         </Grid>
@@ -146,8 +172,9 @@
                                    FontSize="13"
                                    TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                                Dark={StaticResource TextDimDark}}" />
-                            <Label Grid.Column="1" Text=""
+                            <Label x:Name="CaloriesValue" Grid.Column="1" Text=""
                                    FontSize="14" FontAttributes="Bold"
+                                   AutomationProperties.Name="Calories"
                                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                                Dark={StaticResource TextDark}}" />
                         </Grid>
@@ -157,8 +184,9 @@
                                    FontSize="13"
                                    TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                                Dark={StaticResource TextDimDark}}" />
-                            <Label Grid.Column="1" Text=""
+                            <Label x:Name="AllergensValue" Grid.Column="1" Text=""
                                    FontSize="14" FontAttributes="Bold"
+                                   AutomationProperties.Name="Allergens"
                                    TextColor="{StaticResource Warning}" />
                         </Grid>
                         <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
@@ -167,8 +195,9 @@
                                    FontSize="13"
                                    TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                                Dark={StaticResource TextDimDark}}" />
-                            <Label Grid.Column="1" Text=""
+                            <Label x:Name="AvailableValue" Grid.Column="1" Text=""
                                    FontSize="14" FontAttributes="Bold"
+                                   AutomationProperties.Name="Available hours"
                                    TextColor="{StaticResource Success}" />
                         </Grid>
                     </VerticalStackLayout>
@@ -180,7 +209,10 @@
                     <Button Grid.Column="0"
                             Text="Order Now"
                             BackgroundColor="{StaticResource Primary}"
-                            CornerRadius="14" HeightRequest="54" />
+                            CornerRadius="14" HeightRequest="54"
+                            AutomationProperties.Name="Order now"
+                            AutomationProperties.HelpText="Tap to place an order"
+                            Clicked="OnOrderClicked" />
                     <Button Grid.Column="1"
                             Text="Get Directions"
                             CornerRadius="14" HeightRequest="54"
@@ -189,7 +221,10 @@
                                                         Dark={StaticResource TextDark}}"
                             BorderColor="{AppThemeBinding Light={StaticResource BorderLight},
                                                            Dark={StaticResource BorderDark}}"
-                            BorderWidth="1" />
+                            BorderWidth="1"
+                            AutomationProperties.Name="Get directions"
+                            AutomationProperties.HelpText="Tap to get directions to this location"
+                            Clicked="OnDirectionsClicked" />
                 </Grid>
 
             </VerticalStackLayout>

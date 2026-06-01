@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodAndDrink.ItemListPage"
+             Shell.NavBarIsVisible="True"
+             Title="All Items">
+
+    <Grid RowDefinitions="Auto,*"
+          BackgroundColor="{AppThemeBinding Light={StaticResource OffWhite},
+                                            Dark={StaticResource Black}}">
+
+        <!-- ===== Filter Bar ===== -->
+        <VerticalStackLayout Grid.Row="0" Spacing="12" Padding="16,12">
+
+            <!-- Search Bar -->
+            <SearchBar x:Name="ListSearchBar"
+                       Placeholder="Search by name, cuisine..."
+                       SearchButtonPressed="OnSearchPressed" />
+
+            <!-- Category Chips -->
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout x:Name="CategoryChips" Spacing="8">
+                    <!-- Dynamically populated -->
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <!-- Sort & Price Filter -->
+            <HorizontalStackLayout Spacing="8">
+                <Picker x:Name="SortPicker"
+                        Title="Sort By"
+                        WidthRequest="130"
+                        SelectedIndexChanged="OnSortChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Rating ↓</x:String>
+                            <x:String>Price ↑</x:String>
+                            <x:String>Distance ↑</x:String>
+                            <x:String>Newest</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Picker x:Name="PricePicker"
+                        Title="Price"
+                        WidthRequest="110"
+                        SelectedIndexChanged="OnPriceFilterChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>All</x:String>
+                            <x:String>$</x:String>
+                            <x:String>$$</x:String>
+                            <x:String>$$$</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- ===== Item List ===== -->
+        <CollectionView Grid.Row="1"
+                         x:Name="ItemsCollection"
+                         SelectionMode="None"
+                         RemainingItemsThreshold="5">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="{OnIdiom Phone=1, Tablet=2, Desktop=2}"
+                                 HorizontalItemSpacing="8"
+                                 VerticalItemSpacing="8" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="0" HasShadow="False" Margin="16,4"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
+                           BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnItemTapped"
+                                                  CommandParameter="{Binding Id}" />
+                        </Frame.GestureRecognizers>
+                        <Grid ColumnDefinitions="80,*,Auto"
+                              ColumnSpacing="14" Padding="12">
+                            <Frame Grid.Column="0"
+                                   CornerRadius="12" Padding="0"
+                                   HasShadow="False"
+                                   BackgroundColor="{StaticResource PrimaryLight}"
+                                   BorderColor="Transparent">
+                                <Label Text="{Binding IconEmoji}" FontSize="32"
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Frame>
+                            <VerticalStackLayout Grid.Column="1"
+                                                 VerticalOptions="Center" Spacing="4">
+                                <Label Text="{Binding Name}"
+                                       FontSize="16" FontAttributes="Bold"
+                                       FontFamily="OpenSansSemibold"
+                                       AutomationProperties.Name="{Binding Name}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                                   Dark={StaticResource TextDark}}" />
+                                <Label Text="{Binding Subtitle}"
+                                       FontSize="13"
+                                       AutomationProperties.Name="{Binding Subtitle}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                                   Dark={StaticResource TextDimDark}}" />
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="★" FontSize="12"
+                                           TextColor="{StaticResource Tertiary}" />
+                                    <Label Text="{Binding Rating, StringFormat='{0:F1}'}"
+                                           FontSize="12" FontAttributes="Bold"
+                                           TextColor="{StaticResource Tertiary}" />
+                                    <Label Text="{Binding ReviewCount, StringFormat='({0})'}"
+                                           FontSize="12"
+                                           TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                                       Dark={StaticResource TextDimDark}}" />
+                                    <Label Text="{Binding PriceTier}"
+                                           FontSize="12" FontAttributes="Bold"
+                                           Margin="6,0,0,0"
+                                           TextColor="{AppThemeBinding Light={StaticResource Primary},
+                                                                       Dark={StaticResource PrimaryDark}}" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                            <!-- Favorite Button -->
+                            <Frame Grid.Column="2"
+                                   WidthRequest="44" HeightRequest="44"
+                                   CornerRadius="14" Padding="0"
+                                   HasShadow="False"
+                                   AutomationProperties.Name="Toggle favorite"
+                                   AutomationProperties.HelpText="Tap to save or remove this item from your favorites"
+                                   BackgroundColor="{StaticResource PrimaryLight}"
+                                   BorderColor="Transparent"
+                                   VerticalOptions="Center">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFavoriteTapped"
+                                                          CommandParameter="{Binding Id}" />
+                                </Frame.GestureRecognizers>
+                                <Label Text="♡" FontSize="18"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       AutomationProperties.Name="Favorite button"
+                                       TextColor="{StaticResource Primary}" />
+                            </Frame>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- ===== Empty State ===== -->
+        <VerticalStackLayout Grid.Row="1"
+                             x:Name="EmptyState"
+                             IsVisible="False"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="16"
+                             Padding="40">
+            <BoxView WidthRequest="64" HeightRequest="64"
+                     CornerRadius="20"
+                     Color="{StaticResource SecondaryLight}"
+                     HorizontalOptions="Center" />
+            <Label Text="No items found"
+                   FontSize="18" FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   FontFamily="OpenSansSemibold"
+                   AutomationProperties.Name="No items found"
+                   TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                               Dark={StaticResource TextDark}}" />
+            <Label Text="Try adjusting your filters or search terms"
+                   FontSize="14"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   AutomationProperties.Name="Try adjusting your filters or search terms"
+                   TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                               Dark={StaticResource TextDimDark}}" />
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>
