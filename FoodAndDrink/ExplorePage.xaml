@@ -15,13 +15,13 @@
                                  BackgroundColor="{StaticResource BgGreenLight}">
                 <VerticalStackLayout Spacing="6">
                     <Label Text="Explore"
-                           FontSize="32" FontAttributes="Bold"
+                           FontSize="{DynamicResource HeroFontSize}" FontAttributes="Bold"
                            FontFamily="OpenSansSemibold"
                            AutomationProperties.Name="Explore"
                            TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                        Dark={StaticResource TextDark}}" />
                     <Label Text="Find your next favorite"
-                           FontSize="14"
+                           FontSize="{DynamicResource MediumFontSize}"
                            AutomationProperties.Name="Find your next favorite"
                            TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                        Dark={StaticResource TextDimDark}}" />
@@ -29,7 +29,8 @@
                 <SearchBar x:Name="ExploreSearchBar"
                            Placeholder="Search by name, ingredient, or cuisine..."
                            AutomationProperties.Name="Search food and drinks"
-                           AutomationProperties.HelpText="Search by name, ingredient, or cuisine" />
+                           AutomationProperties.HelpText="Search by name, ingredient, or cuisine"
+                           SearchButtonPressed="OnExploreSearchPressed" />
             </VerticalStackLayout>
 
             <!-- ===== Smart Scan Card ===== -->
@@ -160,7 +161,11 @@
                                VerticalOptions="End"
                                AutomationProperties.Name="See all popular items"
                                TextColor="{AppThemeBinding Light={StaticResource Secondary},
-                                                           Dark={StaticResource SecondaryDark}}" />
+                                                           Dark={StaticResource SecondaryDark}}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnPopularSeeAllClicked" />
+                            </Label.GestureRecognizers>
+                        </Label>
                     </Grid>
                     <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                         <HorizontalStackLayout x:Name="PopularStack" Spacing="14">
@@ -225,7 +230,11 @@
                                VerticalOptions="End"
                                AutomationProperties.Name="Clear recently viewed"
                                TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                           Dark={StaticResource TextDimDark}}" />
+                                                           Dark={StaticResource TextDimDark}}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnClearRecentClicked" />
+                            </Label.GestureRecognizers>
+                        </Label>
                     </Grid>
                     <VerticalStackLayout x:Name="RecentStack" Spacing="10">
                         <BindableLayout.ItemTemplate>
@@ -265,6 +274,34 @@
                 </VerticalStackLayout>
 
             </VerticalStackLayout>
+
+            <!-- ===== Empty State ===== -->
+            <VerticalStackLayout x:Name="EmptyState"
+                                 IsVisible="False"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="18"
+                                 Padding="40,60">
+                <BoxView WidthRequest="64" HeightRequest="64"
+                         CornerRadius="20"
+                         Color="{StaticResource SecondaryLight}"
+                         HorizontalOptions="Center" />
+                <Label Text="Nothing here yet"
+                       FontSize="{DynamicResource LargeFontSize}" FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       FontFamily="OpenSansSemibold"
+                       AutomationProperties.Name="Nothing here yet"
+                       TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                   Dark={StaticResource TextDark}}" />
+                <Label Text="Try searching or adjusting your filters"
+                       FontSize="{DynamicResource MediumFontSize}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       AutomationProperties.Name="Try searching or adjusting your filters"
+                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                   Dark={StaticResource TextDimDark}}" />
+            </VerticalStackLayout>
+
         </VerticalStackLayout>
     </ScrollView>
 

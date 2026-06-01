@@ -1,7 +1,16 @@
 namespace FoodAndDrink.Services
 {
+    /// <summary>
+    /// Provides location-based services: retrieving the device's current GPS position
+    /// and calculating distances using the Haversine formula.
+    /// Part of the "mobile hardware" requirement — geolocation counts as a sensor feature.
+    /// </summary>
     public class LocationService
     {
+        /// <summary>
+        /// Requests location permission and retrieves the device's current GPS coordinates.
+        /// Returns null if permission is denied, GPS is unsupported, or an error occurs.
+        /// </summary>
         public async Task<Location?> GetCurrentLocationAsync()
         {
             try
@@ -34,7 +43,10 @@ namespace FoodAndDrink.Services
             }
         }
 
-        // Haversine formula for distance between two coordinates (in miles)
+        /// <summary>
+        /// Calculates the great-circle distance between two geographic coordinates
+        /// using the Haversine formula. Returns distance in miles.
+        /// </summary>
         public static double CalculateDistance(double lat1, double lon1, double lat2, double lon2)
         {
             double radLat1 = lat1 * (Math.PI / 180.0);

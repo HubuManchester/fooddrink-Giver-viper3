@@ -5,17 +5,26 @@ namespace FoodAndDrink
     public partial class ProfilePage : ContentPage
     {
         private readonly FoodItemService _foodItemService;
+        private readonly FontScaleService _fontScale;
 
-        public ProfilePage(FoodItemService foodItemService)
+        public ProfilePage(FoodItemService foodItemService, FontScaleService fontScale)
         {
             InitializeComponent();
             _foodItemService = foodItemService;
+            _fontScale = fontScale;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             await LoadStatsAsync();
+
+            // Sync slider to current scale
+            TextSizeSlider.Value = _fontScale.GetSliderValue();
+            TextSizeLabel.Text = _fontScale.GetScaleLabel();
+
+            // Sync dark mode switch with actual app theme
+            DarkModeSwitch.IsToggled = Application.Current?.UserAppTheme == AppTheme.Dark;
         }
 
         private async Task LoadStatsAsync()
@@ -23,22 +32,13 @@ namespace FoodAndDrink
             try
             {
                 StatFavorites.Text = (await _foodItemService.GetFavoriteCountAsync()).ToString();
+                StatScans.Text = "—";
                 StatReviews.Text = (await _foodItemService.GetViewedCountAsync()).ToString();
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"[ProfilePage] Stats error: {ex.Message}");
             }
-        }
-
-        private void OnDietaryToggleChanged(object sender, ToggledEventArgs e)
-        {
-            // Save dietary preference
-        }
-
-        private void OnNotificationToggleChanged(object sender, ToggledEventArgs e)
-        {
-            // Save notification preference
         }
 
         private void OnDarkModeToggled(object sender, ToggledEventArgs e)
@@ -49,12 +49,8 @@ namespace FoodAndDrink
 
         private void OnTextSizeChanged(object sender, ValueChangedEventArgs e)
         {
-            if (e.NewValue < 0.33)
-                TextSizeLabel.Text = "Small";
-            else if (e.NewValue < 0.66)
-                TextSizeLabel.Text = "Medium";
-            else
-                TextSizeLabel.Text = "Large";
+            _fontScale.SetFromSlider(e.NewValue);
+            TextSizeLabel.Text = _fontScale.GetScaleLabel();
         }
 
         private async void OnLogoutClicked(object sender, EventArgs e)
@@ -62,7 +58,8 @@ namespace FoodAndDrink
             bool confirm = await DisplayAlert("Log Out", "Are you sure you want to log out?", "Log Out", "Cancel");
             if (confirm)
             {
-                // Perform logout
+                // Reset to home page and clear navigation stack
+                await Shell.Current.GoToAsync("//MainPage");
             }
         }
     }

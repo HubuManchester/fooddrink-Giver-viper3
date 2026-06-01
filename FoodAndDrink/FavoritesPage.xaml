@@ -17,14 +17,14 @@
                      CornerRadius="2"
                      Color="{StaticResource Accent}" />
             <Label Text="Favorites"
-                   FontSize="32"
+                   FontSize="{DynamicResource HeroFontSize}"
                    FontAttributes="Bold"
                    FontFamily="OpenSansSemibold"
                    AutomationProperties.Name="Favorites"
                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                Dark={StaticResource TextDark}}" />
             <Label Text="Your saved dishes and places"
-                   FontSize="14"
+                   FontSize="{DynamicResource MediumFontSize}"
                    AutomationProperties.Name="Your saved dishes and places"
                    TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                Dark={StaticResource TextDimDark}}" />
@@ -37,7 +37,7 @@
                     <BoxView WidthRequest="24" HeightRequest="3"
                              CornerRadius="2"
                              Color="{StaticResource Primary}" />
-                    <Label Text="Saved Items" FontSize="16" FontAttributes="Bold"
+                    <Label Text="Saved Items" FontSize="{DynamicResource LargeFontSize}" FontAttributes="Bold"
                            FontFamily="OpenSansSemibold"
                            AutomationProperties.Name="Saved items list"
                            TextColor="{AppThemeBinding Light={StaticResource TextLight},
@@ -129,14 +129,14 @@
                      Color="{StaticResource SecondaryLight}"
                      HorizontalOptions="Center" />
             <Label Text="No favorites yet"
-                   FontSize="18" FontAttributes="Bold"
+                   FontSize="{DynamicResource LargeFontSize}" FontAttributes="Bold"
                    HorizontalOptions="Center"
                    FontFamily="OpenSansSemibold"
                    AutomationProperties.Name="No favorites yet"
                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                Dark={StaticResource TextDark}}" />
             <Label Text="Tap the heart icon on any item to save it here"
-                   FontSize="14"
+                   FontSize="{DynamicResource MediumFontSize}"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center"
                    AutomationProperties.Name="Tap the heart icon on any item to save it here"
@@ -147,7 +147,8 @@
                     CornerRadius="14"
                     HorizontalOptions="Center"
                     AutomationProperties.Name="Explore dishes"
-                    Margin="0,8,0,0" />
+                    Margin="0,8,0,0"
+                    Clicked="OnExploreDishesClicked" />
         </VerticalStackLayout>
 
     </Grid>

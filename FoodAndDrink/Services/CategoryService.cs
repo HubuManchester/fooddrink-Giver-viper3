@@ -3,6 +3,10 @@ using SQLite;
 
 namespace FoodAndDrink.Services
 {
+    /// <summary>
+    /// Provides read access to the Categories table. Categories are seeded once
+    /// at database creation and are read-only at runtime.
+    /// </summary>
     public class CategoryService
     {
         private readonly DatabaseService _dbService;

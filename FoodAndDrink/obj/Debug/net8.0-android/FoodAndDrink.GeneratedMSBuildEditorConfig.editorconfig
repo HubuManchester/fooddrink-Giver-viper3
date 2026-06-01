@@ -77,3 +77,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FoodAndDrink.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[G:/Mobile/Assessment/FoodAndDrink/FoodAndDrink/ScanPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FoodAndDrink.ScanPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ScanPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ScanPage.xaml

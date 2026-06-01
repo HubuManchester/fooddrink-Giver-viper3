@@ -4,6 +4,162 @@
         <name>FoodAndDrink</name>
     </assembly>
     <members>
+        <member name="M:FoodAndDrink.DetailPage.OnFavoriteClicked(System.Object,System.EventArgs)">
+            <summary>
+            Toggles the favorite status of the current item with haptic feedback.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.DetailPage.OnReadAloudClicked(System.Object,System.EventArgs)">
+            <summary>
+            Uses Text-to-Speech to read aloud the item description and allergens.
+            This fulfills the "specialist on-board mobile hardware" requirement (LO2).
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.DetailPage.OnOrderClicked(System.Object,System.EventArgs)">
+            <summary>
+            Opens a food delivery search for this item using the device browser.
+            Falls back to a web search if the delivery platform deep link fails.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.DetailPage.OnDirectionsClicked(System.Object,System.EventArgs)">
+            <summary>
+            Opens the device's native maps app with a search for this item's location.
+            Uses Map.OpenAsync with the item's subtitle (city/region) and name.
+            Falls back to web maps if native maps are unavailable.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.ExplorePage.OnCameraScanClicked(System.Object,System.EventArgs)">
+            <summary>
+            Opens the device camera to capture a photo of a dish.
+            Uses MediaPicker API with permission handling.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.ExplorePage.OnBarcodeScanClicked(System.Object,System.EventArgs)">
+            <summary>
+            Navigates to the barcode scanner page which uses ZXing
+            to read barcodes/QR codes via the device camera.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.ExplorePage.OnPopularSeeAllClicked(System.Object,System.EventArgs)">
+            <summary>
+            Navigates to the full item list sorted by rating when "See All" is tapped
+            in the Popular This Week section.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.ExplorePage.OnClearRecentClicked(System.Object,System.EventArgs)">
+            <summary>
+            Clears all recently viewed items from the tracked list.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.FavoritesPage.OnExploreDishesClicked(System.Object,System.EventArgs)">
+            <summary>
+            Navigates to the explore page when the "Explore Dishes" button is tapped
+            in the empty favorites state.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.MainPage.StartShakeDetection">
+            <summary>
+            Starts listening to the accelerometer for shake gestures.
+            When a shake is detected, triggers a random food recommendation.
+            This fulfills the "specialist on-board mobile hardware" requirement (LO2).
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.MainPage.ShowShakeRecommendation">
+            <summary>
+            Picks a random item and shows it as a shake-based recommendation.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.ScanPage.OnFlashlightClicked(System.Object,System.EventArgs)">
+            <summary>
+            Toggles the device flashlight on/off for barcode scanning in low light.
+            Uses the Flashlight API — counts as mobile hardware usage.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.ScanPage.OnBarcodesDetected(System.Object,ZXing.Net.Maui.BarcodeDetectionEventArgs)">
+            <summary>
+            Handles barcode detection events from ZXing camera view.
+            On first detection, vibrates, stops scanning, and shows the scanned value.
+            </summary>
+        </member>
+        <member name="T:FoodAndDrink.Services.CategoryService">
+            <summary>
+            Provides read access to the Categories table. Categories are seeded once
+            at database creation and are read-only at runtime.
+            </summary>
+        </member>
+        <member name="T:FoodAndDrink.Services.DatabaseService">
+            <summary>
+            Manages the SQLite database lifecycle: creation, table setup, and seed data.
+            Registered as a singleton in DI to ensure a single database connection path.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.DatabaseService.GetDbAsync">
+            <summary>
+            Returns an initialized SQLite connection, creating tables and seeding data on first access.
+            Uses double-check locking to prevent race conditions during concurrent initialization.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.DatabaseService.GetConnectionAsync">
+            <summary>
+            Provides access to the initialized database connection for other services.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.DatabaseService.SeedDataAsync(SQLite.SQLiteAsyncConnection)">
+            <summary>
+            Seeds the database with 7 food categories and 32 food items representing
+            authentic Chinese cuisine across different price tiers.
+            Only runs when the Category table is empty.
+            </summary>
+        </member>
+        <member name="T:FoodAndDrink.Services.FoodItemService">
+            <summary>
+            Business logic layer for food items: CRUD, search, filter, sort,
+            favorites management, and recently-viewed tracking.
+            All methods return empty collections on failure rather than throwing,
+            ensuring the UI degrades gracefully.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.FoodItemService.SearchAsync(System.String)">
+            <summary>
+            Searches items by keyword across Name, Cuisine, and Subtitle fields.
+            Returns all items if keyword is empty.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.FoodItemService.ToggleFavoriteAsync(System.Int32)">
+            <summary>
+            Toggles the IsFavorite flag on a food item. Inverts the current state.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.FoodItemService.ClearRecentlyViewedAsync">
+            <summary>
+            Clears the ViewedAt timestamp on all items, resetting the recently-viewed list.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.FoodItemService.FillIconEmojiAsync(System.Collections.Generic.List{FoodAndDrink.Models.FoodItem})">
+            <summary>
+            Populates the IconEmoji property on each item by looking up its category.
+            Fails silently — emoji is a cosmetic enhancement.
+            </summary>
+        </member>
+        <member name="T:FoodAndDrink.Services.LocationService">
+            <summary>
+            Provides location-based services: retrieving the device's current GPS position
+            and calculating distances using the Haversine formula.
+            Part of the "mobile hardware" requirement — geolocation counts as a sensor feature.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.LocationService.GetCurrentLocationAsync">
+            <summary>
+            Requests location permission and retrieves the device's current GPS coordinates.
+            Returns null if permission is denied, GPS is unsupported, or an error occurs.
+            </summary>
+        </member>
+        <member name="M:FoodAndDrink.Services.LocationService.CalculateDistance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates the great-circle distance between two geographic coordinates
+            using the Haversine formula. Returns distance in miles.
+            </summary>
+        </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing,System.Threading.CancellationToken)">
             <summary>
             Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color

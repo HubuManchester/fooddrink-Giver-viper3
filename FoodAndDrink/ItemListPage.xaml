@@ -153,14 +153,14 @@
                      Color="{StaticResource SecondaryLight}"
                      HorizontalOptions="Center" />
             <Label Text="No items found"
-                   FontSize="18" FontAttributes="Bold"
+                   FontSize="{DynamicResource LargeFontSize}" FontAttributes="Bold"
                    HorizontalOptions="Center"
                    FontFamily="OpenSansSemibold"
                    AutomationProperties.Name="No items found"
                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                Dark={StaticResource TextDark}}" />
             <Label Text="Try adjusting your filters or search terms"
-                   FontSize="14"
+                   FontSize="{DynamicResource MediumFontSize}"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center"
                    AutomationProperties.Name="Try adjusting your filters or search terms"

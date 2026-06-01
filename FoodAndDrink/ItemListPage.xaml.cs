@@ -30,7 +30,17 @@ namespace FoodAndDrink
             set
             {
                 if (!string.IsNullOrEmpty(value))
+                {
                     _sortBy = value;
+                    // Sync the Picker UI with the actual sort order
+                    SortPicker.SelectedIndex = value switch
+                    {
+                        "distance" => 2,
+                        "newest" => 3,
+                        "price" => 1,
+                        _ => 0
+                    };
+                }
             }
         }
 
@@ -71,6 +81,7 @@ namespace FoodAndDrink
             tapAll.Tapped += async (s, e) =>
             {
                 _selectedCategoryId = null;
+                await LoadCategories();
                 await LoadItems();
             };
             allChip.GestureRecognizers.Add(tapAll);
@@ -84,6 +95,7 @@ namespace FoodAndDrink
                 tap.Tapped += async (s, e) =>
                 {
                     _selectedCategoryId = catId;
+                    await LoadCategories();
                     await LoadItems();
                 };
                 chip.GestureRecognizers.Add(tap);
@@ -123,7 +135,26 @@ namespace FoodAndDrink
 
             if (!string.IsNullOrWhiteSpace(ListSearchBar.Text))
             {
+                filter.Cuisine = null;
                 _allItems = await _foodItemService.SearchAsync(ListSearchBar.Text.Trim());
+
+                // Apply in-memory filters on search results
+                if (filter.CategoryId.HasValue)
+                    _allItems = _allItems.Where(i => i.CategoryId == filter.CategoryId.Value).ToList();
+                if (!string.IsNullOrEmpty(filter.PriceTier))
+                    _allItems = _allItems.Where(i => i.PriceTier == filter.PriceTier).ToList();
+                if (filter.MinRating.HasValue)
+                    _allItems = _allItems.Where(i => i.Rating >= filter.MinRating.Value).ToList();
+                if (filter.MaxDistance.HasValue)
+                    _allItems = _allItems.Where(i => i.Distance <= filter.MaxDistance.Value).ToList();
+
+                _allItems = _sortBy switch
+                {
+                    "price" => _allItems.OrderBy(i => i.Price).ToList(),
+                    "distance" => _allItems.OrderBy(i => i.Distance).ToList(),
+                    "newest" => _allItems.OrderByDescending(i => i.CreatedAt).ToList(),
+                    _ => _allItems.OrderByDescending(i => i.Rating).ToList(),
+                };
             }
             else
             {
@@ -137,6 +168,11 @@ namespace FoodAndDrink
 
         private async void OnSearchPressed(object? sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(ListSearchBar.Text))
+            {
+                await DisplayAlert("Search", "Please enter a search term.", "OK");
+                return;
+            }
             await LoadItems();
         }
 
@@ -178,7 +214,6 @@ namespace FoodAndDrink
                 catch { }
 
                 await _foodItemService.ToggleFavoriteAsync(itemId);
-                await DisplayAlert("Favorites", "Your favorites have been updated.", "OK");
                 await LoadItems();
             }
         }

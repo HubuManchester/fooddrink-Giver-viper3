@@ -1,6 +1,7 @@
 using CommunityToolkit.Maui;
 using FoodAndDrink.Services;
 using Microsoft.Extensions.Logging;
+using ZXing.Net.Maui.Controls;
 
 namespace FoodAndDrink
 {
@@ -12,6 +13,7 @@ namespace FoodAndDrink
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -22,6 +24,7 @@ namespace FoodAndDrink
             builder.Services.AddSingleton<FoodItemService>();
             builder.Services.AddSingleton<CategoryService>();
             builder.Services.AddSingleton<LocationService>();
+            builder.Services.AddSingleton<FontScaleService>();
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<ExplorePage>();
@@ -29,6 +32,7 @@ namespace FoodAndDrink
             builder.Services.AddTransient<ProfilePage>();
             builder.Services.AddTransient<DetailPage>();
             builder.Services.AddTransient<ItemListPage>();
+            builder.Services.AddTransient<ScanPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

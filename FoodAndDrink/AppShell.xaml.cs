@@ -8,6 +8,7 @@ namespace FoodAndDrink
 
             Routing.RegisterRoute("DetailPage", typeof(DetailPage));
             Routing.RegisterRoute("ItemListPage", typeof(ItemListPage));
+            Routing.RegisterRoute("ScanPage", typeof(ScanPage));
         }
     }
 }

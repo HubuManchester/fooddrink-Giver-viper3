@@ -16,14 +16,14 @@
                 <Grid ColumnDefinitions="*,Auto">
                     <VerticalStackLayout Grid.Column="0" Spacing="6">
                         <Label Text="Discover"
-                               FontSize="32" FontAttributes="Bold"
+                               FontSize="{DynamicResource HeroFontSize}" FontAttributes="Bold"
                                FontFamily="OpenSansSemibold"
-                               AutomationProperties.Name="Discover"
+                               SemanticProperties.Description="Discover"
                                TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                            Dark={StaticResource TextDark}}" />
                         <Label Text="Find the best food &amp; drinks near you"
-                               FontSize="14"
-                               AutomationProperties.Name="Find the best food and drinks near you"
+                               FontSize="{DynamicResource MediumFontSize}"
+                               SemanticProperties.Description="Find the best food and drinks near you"
                                TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
                                                            Dark={StaticResource TextDimDark}}" />
                     </VerticalStackLayout>
@@ -39,8 +39,8 @@
                 </Grid>
                 <SearchBar x:Name="MainSearchBar"
                            Placeholder="Search dishes, drinks, places..."
-                           AutomationProperties.Name="Search food and drinks"
-                           AutomationProperties.HelpText="Enter a dish name, ingredient, or cuisine type"
+                           SemanticProperties.Description="Search food and drinks"
+                           SemanticProperties.Hint="Enter a dish name, ingredient, or cuisine type"
                            SearchButtonPressed="OnMainSearchPressed" />
             </VerticalStackLayout>
 
@@ -56,13 +56,13 @@
                                      Color="{StaticResource Primary}" />
                             <Label Text="Trending Now"
                                    Style="{StaticResource SectionTitle}"
-                                   AutomationProperties.Name="Trending Now section" />
+                                   SemanticProperties.Description="Trending Now section" />
                         </VerticalStackLayout>
                         <Label Grid.Column="1" Text="See All"
                                FontSize="14" FontAttributes="Bold"
                                VerticalOptions="End"
-                               AutomationProperties.Name="See all trending items"
-                               AutomationProperties.HelpText="Tap to view all trending items"
+                               SemanticProperties.Description="See all trending items"
+                               SemanticProperties.Hint="Tap to view all trending items"
                                TextColor="{AppThemeBinding Light={StaticResource Primary},
                                                            Dark={StaticResource PrimaryDark}}">
                             <Label.GestureRecognizers>
@@ -93,7 +93,7 @@
                                             <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="6">
                                                 <Label Text="{Binding Name}"
                                                        Style="{StaticResource CardTitle}"
-                                                       AutomationProperties.Name="{Binding Name}" />
+                                                       SemanticProperties.Description="{Binding Name}" />
                                                 <Label Text="{Binding Subtitle}"
                                                        FontSize="13"
                                                        TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
@@ -129,13 +129,13 @@
                                      Color="{StaticResource Secondary}" />
                             <Label Text="Near You"
                                    Style="{StaticResource SectionTitle}"
-                                   AutomationProperties.Name="Near You section" />
+                                   SemanticProperties.Description="Near You section" />
                         </VerticalStackLayout>
                         <Label Grid.Column="1" Text="See All"
                                FontSize="14" FontAttributes="Bold"
                                VerticalOptions="End"
-                               AutomationProperties.Name="See all nearby items"
-                               AutomationProperties.HelpText="Tap to view all nearby items"
+                               SemanticProperties.Description="See all nearby items"
+                               SemanticProperties.Hint="Tap to view all nearby items"
                                TextColor="{AppThemeBinding Light={StaticResource Secondary},
                                                            Dark={StaticResource SecondaryDark}}">
                             <Label.GestureRecognizers>
@@ -166,7 +166,7 @@
                                             <Label Text="{Binding Name}"
                                                    FontSize="16" FontAttributes="Bold"
                                                    FontFamily="OpenSansSemibold"
-                                                   AutomationProperties.Name="{Binding Name}"
+                                                   SemanticProperties.Description="{Binding Name}"
                                                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                                                Dark={StaticResource TextDark}}" />
                                             <Label Text="{Binding Subtitle}"
@@ -197,24 +197,33 @@
                                  Color="{StaticResource Tertiary}" />
                         <Label Text="Categories"
                                Style="{StaticResource SectionTitle}"
-                               AutomationProperties.Name="Categories section" />
+                               SemanticProperties.Description="Categories section" />
                     </VerticalStackLayout>
-                    <FlexLayout x:Name="CategoryPillsLayout" Wrap="Wrap" JustifyContent="Start" Padding="28,0">
+                    <FlexLayout x:Name="CategoryPillsLayout" Wrap="Wrap" JustifyContent="Start"
+                                AlignItems="Center" Padding="28,0">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Frame BackgroundColor="{StaticResource PrimaryLight}"
-                                       BorderColor="Transparent"
-                                       CornerRadius="20" Padding="16,10"
-                                       Margin="0,0,10,10" HasShadow="False">
+                                <Frame Padding="14,10" CornerRadius="22"
+                                       Margin="0,0,10,10" HasShadow="False"
+                                       BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                                       BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnCategoryTapped"
                                                               CommandParameter="{Binding Id}" />
                                     </Frame.GestureRecognizers>
-                                    <Label Text="{Binding DisplayName}"
-                                           FontSize="14" FontAttributes="Bold"
-                                           FontFamily="OpenSansSemibold"
-                                           AutomationProperties.Name="{Binding DisplayName}"
-                                           TextColor="{StaticResource Primary}" />
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="{Binding IconEmoji}"
+                                               FontSize="16"
+                                               VerticalOptions="Center" />
+                                        <Label Text="{Binding Name}"
+                                               FontAttributes="Bold"
+                                               FontFamily="OpenSansSemibold"
+                                               LineBreakMode="NoWrap"
+                                               VerticalOptions="Center"
+                                               SemanticProperties.Description="{Binding Name}"
+                                               TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                                           Dark={StaticResource TextDark}}" />
+                                    </HorizontalStackLayout>
                                 </Frame>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
@@ -229,7 +238,7 @@
                                  Color="{StaticResource Accent}" />
                         <Label Text="Recommended For You"
                                Style="{StaticResource SectionTitle}"
-                               AutomationProperties.Name="Recommended for you section" />
+                               SemanticProperties.Description="Recommended for you section" />
                     </VerticalStackLayout>
                     <VerticalStackLayout x:Name="RecommendedStack" Spacing="12" Padding="28,0">
                         <BindableLayout.ItemTemplate>
@@ -255,7 +264,7 @@
                                             <Label Text="{Binding Name}"
                                                    FontSize="16" FontAttributes="Bold"
                                                    FontFamily="OpenSansSemibold"
-                                                   AutomationProperties.Name="{Binding Name}"
+                                                   SemanticProperties.Description="{Binding Name}"
                                                    TextColor="{AppThemeBinding Light={StaticResource TextLight},
                                                                                Dark={StaticResource TextDark}}" />
                                             <Label Text="{Binding Subtitle}"
@@ -278,15 +287,15 @@
                                                                                   Dark={StaticResource TextDimDark}}" />
                                             </HorizontalStackLayout>
                                         </VerticalStackLayout>
-                                        <Frame x:Name="FavBtn" Grid.Column="2"
+                                        <Frame Grid.Column="2"
                                                WidthRequest="44" HeightRequest="44"
                                                CornerRadius="14" Padding="0"
                                                HasShadow="False"
                                                BackgroundColor="{StaticResource PrimaryLight}"
                                                BorderColor="Transparent"
                                                VerticalOptions="Center"
-                                               AutomationProperties.Name="Toggle favorite"
-                                               AutomationProperties.HelpText="Tap to save or remove this item from your favorites">
+                                               SemanticProperties.Description="Toggle favorite"
+                                               SemanticProperties.Hint="Tap to save or remove this item from your favorites">
                                             <Frame.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="OnFavoriteTapped"
                                                                       CommandParameter="{Binding Id}" />

@@ -3,6 +3,12 @@ using SQLite;
 
 namespace FoodAndDrink.Services
 {
+    /// <summary>
+    /// Business logic layer for food items: CRUD, search, filter, sort,
+    /// favorites management, and recently-viewed tracking.
+    /// All methods return empty collections on failure rather than throwing,
+    /// ensuring the UI degrades gracefully.
+    /// </summary>
     public class FoodItemService
     {
         private readonly DatabaseService _dbService;
@@ -97,6 +103,10 @@ namespace FoodAndDrink.Services
             }
         }
 
+        /// <summary>
+        /// Searches items by keyword across Name, Cuisine, and Subtitle fields.
+        /// Returns all items if keyword is empty.
+        /// </summary>
         public async Task<List<FoodItem>> SearchAsync(string keyword)
         {
             try
@@ -166,6 +176,9 @@ namespace FoodAndDrink.Services
             }
         }
 
+        /// <summary>
+        /// Toggles the IsFavorite flag on a food item. Inverts the current state.
+        /// </summary>
         public async Task ToggleFavoriteAsync(int itemId)
         {
             try
@@ -240,6 +253,27 @@ namespace FoodAndDrink.Services
             }
         }
 
+        /// <summary>
+        /// Clears the ViewedAt timestamp on all items, resetting the recently-viewed list.
+        /// </summary>
+        public async Task ClearRecentlyViewedAsync()
+        {
+            try
+            {
+                var db = await GetDbAsync();
+                var items = await db.Table<FoodItem>().Where(i => i.ViewedAt != null).ToListAsync();
+                foreach (var item in items)
+                {
+                    item.ViewedAt = null;
+                    await db.UpdateAsync(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[FoodItemService] ClearViewed error: {ex.Message}");
+            }
+        }
+
         public async Task<int> GetFavoriteCountAsync()
         {
             try
@@ -266,6 +300,10 @@ namespace FoodAndDrink.Services
             }
         }
 
+        /// <summary>
+        /// Populates the IconEmoji property on each item by looking up its category.
+        /// Fails silently — emoji is a cosmetic enhancement.
+        /// </summary>
         private async Task FillIconEmojiAsync(List<FoodItem> items)
         {
             if (items.Count == 0)

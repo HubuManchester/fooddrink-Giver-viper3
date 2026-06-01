@@ -38,6 +38,7 @@ namespace FoodAndDrink
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"[FavoritesPage] Load error: {ex.Message}");
+                await DisplayAlert("Error", "Failed to load favorites. Please try again.", "OK");
             }
         }
 
@@ -47,6 +48,15 @@ namespace FoodAndDrink
             {
                 await Shell.Current.GoToAsync($"DetailPage?itemId={itemId}");
             }
+        }
+
+        /// <summary>
+        /// Navigates to the explore page when the "Explore Dishes" button is tapped
+        /// in the empty favorites state.
+        /// </summary>
+        private async void OnExploreDishesClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//ExplorePage");
         }
 
         private async void OnUnfavoriteTapped(object sender, TappedEventArgs e)
@@ -63,7 +73,6 @@ namespace FoodAndDrink
                 }
 
                 await _foodItemService.ToggleFavoriteAsync(itemId);
-                await DisplayAlert("Favorites", "Removed from favorites.", "OK");
                 await LoadFavoritesAsync();
             }
         }

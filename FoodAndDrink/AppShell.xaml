@@ -10,26 +10,22 @@
 
     <TabBar>
         <ShellContent
-            Title="Home"
-            Icon="{OnPlatform Android=home, iOS=house, Default=home}"
+            Title="🏠 Home"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
 
         <ShellContent
-            Title="Explore"
-            Icon="{OnPlatform Android=search, iOS=circle, Default=search}"
+            Title="🔍 Explore"
             ContentTemplate="{DataTemplate local:ExplorePage}"
             Route="ExplorePage" />
 
         <ShellContent
-            Title="Favorites"
-            Icon="{OnPlatform Android=star, iOS=star, Default=star}"
+            Title="❤️ Favorites"
             ContentTemplate="{DataTemplate local:FavoritesPage}"
             Route="FavoritesPage" />
 
         <ShellContent
-            Title="Profile"
-            Icon="{OnPlatform Android=person, iOS=person, Default=person}"
+            Title="👤 Profile"
             ContentTemplate="{DataTemplate local:ProfilePage}"
             Route="ProfilePage" />
     </TabBar>
