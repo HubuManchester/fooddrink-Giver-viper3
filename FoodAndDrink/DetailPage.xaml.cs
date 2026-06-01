@@ -44,8 +44,7 @@ namespace FoodAndDrink
                 AvailableValue.Text = _item.AvailableTime;
 
                 // Hero content
-                HeroEmoji.Text = _item.IconEmoji;
-                HeroCategory.Text = _item.Cuisine;
+                HeroImageContent.Source = _item.ImageUrl;
                 var colors = new[] { "PrimaryLight", "SecondaryLight", "TertiaryLight" };
                 HeroImage.BackgroundColor = (Color)Application.Current!.Resources[colors[_item.CategoryId % colors.Length]];
 

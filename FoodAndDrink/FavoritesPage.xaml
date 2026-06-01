@@ -60,8 +60,7 @@
                                            HasShadow="False"
                                            BackgroundColor="{StaticResource PrimaryLight}"
                                            BorderColor="Transparent">
-                                        <Label Text="{Binding IconEmoji}" FontSize="30"
-                                               HorizontalOptions="Center" VerticalOptions="Center" />
+                                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
                                     </Frame>
                                     <VerticalStackLayout Grid.Column="1"
                                                          VerticalOptions="Center" Spacing="4">

@@ -17,15 +17,7 @@
                    HeightRequest="280"
                    BackgroundColor="{StaticResource PrimaryLight}"
                    BorderColor="Transparent">
-                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="12">
-                    <Label x:Name="HeroEmoji" Text="🍽️" FontSize="64"
-                           HorizontalOptions="Center" />
-                    <Label x:Name="HeroCategory" Text="" FontSize="14"
-                           FontAttributes="Bold"
-                           HorizontalOptions="Center"
-                           TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
-                                                       Dark={StaticResource TextDimDark}}" />
-                </VerticalStackLayout>
+                <Image x:Name="HeroImageContent" Aspect="AspectFill" />
             </Frame>
 
             <!-- ===== Content ===== -->

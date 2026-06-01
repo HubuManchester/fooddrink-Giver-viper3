@@ -88,8 +88,7 @@
                                                    CornerRadius="16,16,0,0"
                                                    Padding="0" HasShadow="False"
                                                    BorderColor="Transparent">
-                                                <Label Text="{Binding IconEmoji}" FontSize="36"
-                                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
                                             </Frame>
                                             <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="6">
                                                 <Label Text="{Binding Name}"
@@ -162,8 +161,7 @@
                                                    HasShadow="False"
                                                    BackgroundColor="{StaticResource SecondaryLight}"
                                                    BorderColor="Transparent">
-                                                <Label Text="{Binding IconEmoji}" FontSize="24"
-                                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
                                             </Frame>
                                             <Label Text="{Binding Name}"
                                                    FontSize="16" FontAttributes="Bold"
@@ -250,8 +248,7 @@
                                                HasShadow="False"
                                                BackgroundColor="{StaticResource TertiaryLight}"
                                                BorderColor="Transparent">
-                                            <Label Text="{Binding IconEmoji}" FontSize="32"
-                                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                                            <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
                                         </Frame>
                                         <VerticalStackLayout Grid.Column="1"
                                                              VerticalOptions="Center" Spacing="4">
