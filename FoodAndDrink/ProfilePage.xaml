@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodAndDrink.ProfilePage"
+             Shell.NavBarIsVisible="False"
+             Title="Profile">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0"
+                             BackgroundColor="{AppThemeBinding Light={StaticResource OffWhite},
+                                                              Dark={StaticResource Black}}">
+
+            <!-- ===== Profile Header ===== -->
+            <VerticalStackLayout Padding="28,56,28,24"
+                                 Spacing="18"
+                                 HorizontalOptions="Center"
+                                 BackgroundColor="{StaticResource BgWarmLight}">
+                <!-- Avatar -->
+                <Frame WidthRequest="88" HeightRequest="88"
+                       CornerRadius="24" Padding="0"
+                       HasShadow="False"
+                       BackgroundColor="{StaticResource PrimaryLight}"
+                       BorderColor="{StaticResource Primary}"
+                       HorizontalOptions="Center">
+                    <Label Text="👤" FontSize="40"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Frame>
+                <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                    <Label x:Name="UserName"
+                           Text=""
+                           FontSize="22" FontAttributes="Bold"
+                           FontFamily="OpenSansSemibold"
+                           HorizontalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                       Dark={StaticResource TextDark}}" />
+                    <Label x:Name="UserEmail"
+                           Text=""
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                       Dark={StaticResource TextDimDark}}" />
+                </VerticalStackLayout>
+                <Frame CornerRadius="20"
+                       Padding="18,8"
+                       HasShadow="False"
+                       BackgroundColor="{StaticResource Primary}"
+                       BorderColor="Transparent"
+                       HorizontalOptions="Center">
+                    <Label Text=""
+                           FontSize="13" FontAttributes="Bold"
+                           FontFamily="OpenSansSemibold"
+                           TextColor="{StaticResource White}" />
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- ===== Stats Row ===== -->
+            <Frame Margin="28,24,28,28"
+                   BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}"
+                   BorderColor="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}"
+                   CornerRadius="16" Padding="8" HasShadow="False">
+                <Grid ColumnDefinitions="*,*,*">
+                    <VerticalStackLayout Grid.Column="0"
+                                         HorizontalOptions="Center" Spacing="4"
+                                         Padding="12">
+                        <Label x:Name="StatFavorites"
+                               Text="0"
+                               FontSize="26" FontAttributes="Bold"
+                               FontFamily="OpenSansSemibold"
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Primary}" />
+                        <Label Text="Favorites" FontSize="12"
+                               HorizontalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                           Dark={StaticResource TextDimDark}}" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1"
+                                         HorizontalOptions="Center" Spacing="4"
+                                         Padding="12">
+                        <Label x:Name="StatScans"
+                               Text="0"
+                               FontSize="26" FontAttributes="Bold"
+                               FontFamily="OpenSansSemibold"
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Secondary}" />
+                        <Label Text="Scans" FontSize="12"
+                               HorizontalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                           Dark={StaticResource TextDimDark}}" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="2"
+                                         HorizontalOptions="Center" Spacing="4"
+                                         Padding="12">
+                        <Label x:Name="StatReviews"
+                               Text="0"
+                               FontSize="26" FontAttributes="Bold"
+                               FontFamily="OpenSansSemibold"
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Tertiary}" />
+                        <Label Text="Reviews" FontSize="12"
+                               HorizontalOptions="Center"
+                               TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
+                                                           Dark={StaticResource TextDimDark}}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- ===== Settings ===== -->
+            <VerticalStackLayout Spacing="14" Padding="28,0,28,48">
+
+                <!-- Dietary Preferences -->
+                <Frame>
+                    <VerticalStackLayout Spacing="0">
+                        <HorizontalStackLayout Spacing="8" Margin="0,0,0,18">
+                            <BoxView WidthRequest="3" HeightRequest="16"
+                                     CornerRadius="2"
+                                     Color="{StaticResource Primary}" />
+                            <Label Text="Dietary Preferences"
+                                   FontSize="14" FontAttributes="Bold"
+                                   FontFamily="OpenSansSemibold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                               Dark={StaticResource TextDark}}" />
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Vegetarian" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Switch Grid.Column="1" x:Name="VegetarianSwitch"
+                                    Toggled="OnDietaryToggleChanged" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Vegan" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Switch Grid.Column="1" x:Name="VeganSwitch"
+                                    Toggled="OnDietaryToggleChanged" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Gluten-Free" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Switch Grid.Column="1" x:Name="GlutenFreeSwitch"
+                                    Toggled="OnDietaryToggleChanged" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Lactose Intolerant" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Switch Grid.Column="1" x:Name="LactoseSwitch"
+                                    Toggled="OnDietaryToggleChanged" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Notifications -->
+                <Frame>
+                    <VerticalStackLayout Spacing="0">
+                        <HorizontalStackLayout Spacing="8" Margin="0,0,0,18">
+                            <BoxView WidthRequest="3" HeightRequest="16"
+                                     CornerRadius="2"
+                                     Color="{StaticResource Secondary}" />
+                            <Label Text="Notifications"
+                                   FontSize="14" FontAttributes="Bold"
+                                   FontFamily="OpenSansSemibold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                               Dark={StaticResource TextDark}}" />
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Push Notifications" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Switch Grid.Column="1" x:Name="PushSwitch" IsToggled="True"
+                                    Toggled="OnNotificationToggleChanged" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Weekly Picks" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Switch Grid.Column="1" x:Name="RecommendSwitch" IsToggled="True"
+                                    Toggled="OnNotificationToggleChanged" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Price Alerts" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Switch Grid.Column="1" x:Name="PriceAlertSwitch"
+                                    Toggled="OnNotificationToggleChanged" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Display -->
+                <Frame>
+                    <VerticalStackLayout Spacing="0">
+                        <HorizontalStackLayout Spacing="8" Margin="0,0,0,18">
+                            <BoxView WidthRequest="3" HeightRequest="16"
+                                     CornerRadius="2"
+                                     Color="{StaticResource Tertiary}" />
+                            <Label Text="Display"
+                                   FontSize="14" FontAttributes="Bold"
+                                   FontFamily="OpenSansSemibold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                               Dark={StaticResource TextDark}}" />
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Dark Mode" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Switch Grid.Column="1" x:Name="DarkModeSwitch"
+                                    Toggled="OnDarkModeToggled" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <VerticalStackLayout Padding="0,14,0,6" Spacing="10">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Grid.Column="0" Text="Text Size" FontSize="15"
+                                       VerticalOptions="Center" />
+                                <Label Grid.Column="1" x:Name="TextSizeLabel" Text="Medium"
+                                       FontSize="14" VerticalOptions="Center"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextDimLight}, Dark={StaticResource TextDimDark}}" />
+                            </Grid>
+                            <Slider x:Name="TextSizeSlider"
+                                    Minimum="0" Maximum="1" Value="0.5"
+                                    ValueChanged="OnTextSizeChanged" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Account -->
+                <Frame>
+                    <VerticalStackLayout Spacing="0">
+                        <HorizontalStackLayout Spacing="8" Margin="0,0,0,18">
+                            <BoxView WidthRequest="3" HeightRequest="16"
+                                     CornerRadius="2"
+                                     Color="{StaticResource Accent}" />
+                            <Label Text="Account"
+                                   FontSize="14" FontAttributes="Bold"
+                                   FontFamily="OpenSansSemibold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextLight},
+                                                               Dark={StaticResource TextDark}}" />
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Privacy Policy" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="›" FontSize="20"
+                                   VerticalOptions="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextDimLight}, Dark={StaticResource TextDimDark}}" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="Terms of Service" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="›" FontSize="20"
+                                   VerticalOptions="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextDimLight}, Dark={StaticResource TextDimDark}}" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{AppThemeBinding Light={StaticResource BorderLight}, Dark={StaticResource BorderDark}}" />
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,13">
+                            <Label Grid.Column="0" Text="About" FontSize="15"
+                                   VerticalOptions="Center" />
+                            <Label Grid.Column="1" Text="›" FontSize="20"
+                                   VerticalOptions="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextDimLight}, Dark={StaticResource TextDimDark}}" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Logout -->
+                <Button Text="Log Out"
+                        HorizontalOptions="Fill"
+                        CornerRadius="14"
+                        HeightRequest="52"
+                        Margin="0,6,0,0"
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light={StaticResource Error},
+                                                    Dark=#E07065}"
+                        FontSize="15"
+                        FontFamily="OpenSansSemibold"
+                        BorderColor="{AppThemeBinding Light={StaticResource BorderLight},
+                                                       Dark={StaticResource BorderDark}}"
+                        BorderWidth="1"
+                        Clicked="OnLogoutClicked" />
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

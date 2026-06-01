@@ -1,0 +1,1 @@
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\FoodAndDrink.csproj;x64

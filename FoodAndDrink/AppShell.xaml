@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FoodAndDrink.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FoodAndDrink"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="{AppThemeBinding Light={StaticResource OffWhite}, Dark={StaticResource Black}}"
+    Title="Food &amp; Drink">
+
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            Icon="{OnPlatform Android=home, iOS=house, Default=home}"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+
+        <ShellContent
+            Title="Explore"
+            Icon="{OnPlatform Android=search, iOS=circle, Default=search}"
+            ContentTemplate="{DataTemplate local:ExplorePage}"
+            Route="ExplorePage" />
+
+        <ShellContent
+            Title="Favorites"
+            Icon="{OnPlatform Android=star, iOS=star, Default=star}"
+            ContentTemplate="{DataTemplate local:FavoritesPage}"
+            Route="FavoritesPage" />
+
+        <ShellContent
+            Title="Profile"
+            Icon="{OnPlatform Android=person, iOS=person, Default=person}"
+            ContentTemplate="{DataTemplate local:ProfilePage}"
+            Route="ProfilePage" />
+    </TabBar>
+
+</Shell>
