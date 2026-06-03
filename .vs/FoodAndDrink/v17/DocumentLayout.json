@@ -3,8 +3,72 @@
   "WorkspaceRootPath": "G:\\Mobile\\Assessment\\FoodAndDrink\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\scanpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\scanpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\itemlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\itemlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\favoritespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\favoritespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\explorepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\explorepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\detailpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\detailpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\locationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\locationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\fontscaleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\fontscaleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\fooditemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\fooditemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,11 +92,76 @@
         },
         {
           "DockedHeight": 183,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ScanPage.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ScanPage.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\ScanPage.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ScanPage.xaml",
+              "RelativeToolTip": "FoodAndDrink\\ScanPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:59:52.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProfilePage.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ProfilePage.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\ProfilePage.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ProfilePage.xaml",
+              "RelativeToolTip": "FoodAndDrink\\ProfilePage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:59:37.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\MainPage.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\MainPage.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\MainPage.xaml",
+              "RelativeToolTip": "FoodAndDrink\\MainPage.xaml",
+              "ViewState": "AgIAACYAAAAAAAAAAAA3wAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:59:21.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FavoritesPage.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\FavoritesPage.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\FavoritesPage.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\FavoritesPage.xaml",
+              "RelativeToolTip": "FoodAndDrink\\FavoritesPage.xaml",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:58:39.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExplorePage.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ExplorePage.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\ExplorePage.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ExplorePage.xaml",
+              "RelativeToolTip": "FoodAndDrink\\ExplorePage.xaml",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAAAAcBAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:58:25.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MauiProgram.cs",
               "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\MauiProgram.cs",
               "RelativeDocumentMoniker": "FoodAndDrink\\MauiProgram.cs",
@@ -44,12 +173,155 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ItemListPage.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ItemListPage.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\ItemListPage.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\ItemListPage.xaml",
+              "RelativeToolTip": "FoodAndDrink\\ItemListPage.xaml",
+              "ViewState": "AgIAAIwAAAAAAAAAAADwvzYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:58:43.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DetailPage.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\DetailPage.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\DetailPage.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\DetailPage.xaml",
+              "RelativeToolTip": "FoodAndDrink\\DetailPage.xaml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:58:13.875Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "App.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\App.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\App.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\App.xaml",
+              "RelativeToolTip": "FoodAndDrink\\App.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:58:11.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\AppShell.xaml",
+              "RelativeDocumentMoniker": "FoodAndDrink\\AppShell.xaml",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\AppShell.xaml",
+              "RelativeToolTip": "FoodAndDrink\\AppShell.xaml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-03T02:58:07.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppShell.xaml.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\AppShell.xaml.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\AppShell.xaml.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\AppShell.xaml.cs",
+              "RelativeToolTip": "FoodAndDrink\\AppShell.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:58:06.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\App.xaml.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\App.xaml.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\App.xaml.cs",
+              "RelativeToolTip": "FoodAndDrink\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:58:03.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\CategoryService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\CategoryService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\CategoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:57:57.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DatabaseService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\DatabaseService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\DatabaseService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\DatabaseService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\DatabaseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:57:01.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FontScaleService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\FontScaleService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\FontScaleService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\FontScaleService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\FontScaleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:56:57.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LocationService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\LocationService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\LocationService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\LocationService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\LocationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:56:55.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FoodItemService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\FoodItemService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\FoodItemService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\FoodItemService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\FoodItemService.cs",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:56:44.513Z",
+              "EditorCaption": ""
             }
           ]
         }

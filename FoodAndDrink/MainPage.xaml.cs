@@ -55,13 +55,6 @@ namespace FoodAndDrink
             }
         }
 
-        #region Shake Detection (Accelerometer)
-
-        /// <summary>
-        /// Starts listening to the accelerometer for shake gestures.
-        /// When a shake is detected, triggers a random food recommendation.
-        /// This fulfills the "specialist on-board mobile hardware" requirement (LO2).
-        /// </summary>
         private void StartShakeDetection()
         {
             if (!Accelerometer.Default.IsSupported)
@@ -103,24 +96,19 @@ namespace FoodAndDrink
             {
                 _isShakeCooldown = true;
 
-                // Vibrate on shake detected
                 MainThread.BeginInvokeOnMainThread(async () =>
                 {
                     try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
-                    catch { /* Haptic not supported */ }
+                    catch { }
 
                     await ShowShakeRecommendation();
                 });
 
-                // Cooldown: prevent multiple triggers within 2 seconds
                 await Task.Delay(2000);
                 _isShakeCooldown = false;
             }
         }
 
-        /// <summary>
-        /// Picks a random item and shows it as a shake-based recommendation.
-        /// </summary>
         private async Task ShowShakeRecommendation()
         {
             if (_allItems.Count == 0) return;
@@ -137,15 +125,12 @@ namespace FoodAndDrink
             }
         }
 
-        #endregion
-
         private async void OnMainSearchPressed(object sender, EventArgs e)
         {
             var keyword = MainSearchBar.Text?.Trim();
             if (string.IsNullOrWhiteSpace(keyword))
             {
-                try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
-                catch { }
+                Vibrate();
                 return;
             }
 
@@ -172,18 +157,16 @@ namespace FoodAndDrink
         {
             if (e.Parameter is int itemId)
             {
-                try
-                {
-                    HapticFeedback.Default.Perform(HapticFeedbackType.Click);
-                }
-                catch
-                {
-                    // haptic not supported
-                }
-
+                Vibrate();
                 await _foodItemService.ToggleFavoriteAsync(itemId);
                 await LoadDataAsync();
             }
+        }
+
+        private static void Vibrate()
+        {
+            try { HapticFeedback.Default.Perform(HapticFeedbackType.Click); }
+            catch { }
         }
 
         private async void OnTrendingSeeAllClicked(object sender, EventArgs e)

@@ -1,14 +1,9 @@
+using System.Diagnostics;
 using FoodAndDrink.Models;
 using SQLite;
 
 namespace FoodAndDrink.Services
 {
-    /// <summary>
-    /// Business logic layer for food items: CRUD, search, filter, sort,
-    /// favorites management, and recently-viewed tracking.
-    /// All methods return empty collections on failure rather than throwing,
-    /// ensuring the UI degrades gracefully.
-    /// </summary>
     public class FoodItemService
     {
         private readonly DatabaseService _dbService;
@@ -33,39 +28,21 @@ namespace FoodAndDrink.Services
                 await FillIconEmojiAsync(result);
                 return result;
             }
-            catch (SQLiteException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] DB Error: {ex.Message}");
-                return new List<FoodItem>();
-            }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] Unexpected: {ex.Message}");
-                return new List<FoodItem>();
+                Debug.WriteLine($"GetRandomAsync failed: {ex.Message}");
+                return new();
             }
         }
 
         public async Task<List<FoodItem>> GetByCategoryAsync(int categoryId, string sortBy = "rating")
         {
-            try
-            {
-                var db = await GetDbAsync();
-                var query = db.Table<FoodItem>().Where(i => i.CategoryId == categoryId);
-                query = ApplySorting(query, sortBy);
-                var result = await query.ToListAsync();
-                await FillIconEmojiAsync(result);
-                return result;
-            }
-            catch (SQLiteException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] DB Error: {ex.Message}");
-                return new List<FoodItem>();
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] Unexpected: {ex.Message}");
-                return new List<FoodItem>();
-            }
+            var db = await GetDbAsync();
+            var query = db.Table<FoodItem>().Where(i => i.CategoryId == categoryId);
+            query = ApplySorting(query, sortBy);
+            var result = await query.ToListAsync();
+            await FillIconEmojiAsync(result);
+            return result;
         }
 
         public async Task<List<FoodItem>> QueryAsync(ItemFilter filter)
@@ -91,29 +68,20 @@ namespace FoodAndDrink.Services
                 await FillIconEmojiAsync(result);
                 return result;
             }
-            catch (SQLiteException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] DB Error: {ex.Message}");
-                return new List<FoodItem>();
-            }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] Unexpected: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"[FoodItemService] QueryAsync: {ex.Message}");
                 return new List<FoodItem>();
             }
         }
 
-        /// <summary>
-        /// Searches items by keyword across Name, Cuisine, and Subtitle fields.
-        /// Returns all items if keyword is empty.
-        /// </summary>
         public async Task<List<FoodItem>> SearchAsync(string keyword)
         {
+            if (string.IsNullOrWhiteSpace(keyword))
+                return await GetAllAsync();
+
             try
             {
-                if (string.IsNullOrWhiteSpace(keyword))
-                    return await GetAllAsync();
-
                 var db = await GetDbAsync();
                 var result = await db.Table<FoodItem>()
                     .Where(i => i.Name.Contains(keyword) || i.Cuisine.Contains(keyword) || i.Subtitle.Contains(keyword))
@@ -135,24 +103,11 @@ namespace FoodAndDrink.Services
 
         public async Task<List<FoodItem>> GetAllAsync(string sortBy = "rating")
         {
-            try
-            {
-                var db = await GetDbAsync();
-                var query = ApplySorting(db.Table<FoodItem>(), sortBy);
-                var result = await query.ToListAsync();
-                await FillIconEmojiAsync(result);
-                return result;
-            }
-            catch (SQLiteException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] DB Error: {ex.Message}");
-                return new List<FoodItem>();
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] Unexpected: {ex.Message}");
-                return new List<FoodItem>();
-            }
+            var db = await GetDbAsync();
+            var query = ApplySorting(db.Table<FoodItem>(), sortBy);
+            var result = await query.ToListAsync();
+            await FillIconEmojiAsync(result);
+            return result;
         }
 
         public async Task<List<FoodItem>> GetFavoritesAsync()
@@ -164,21 +119,13 @@ namespace FoodAndDrink.Services
                 await FillIconEmojiAsync(result);
                 return result;
             }
-            catch (SQLiteException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] DB Error: {ex.Message}");
-                return new List<FoodItem>();
-            }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] Unexpected: {ex.Message}");
-                return new List<FoodItem>();
+                Debug.WriteLine($"GetFavorites: {ex.Message}");
+                return new();
             }
         }
 
-        /// <summary>
-        /// Toggles the IsFavorite flag on a food item. Inverts the current state.
-        /// </summary>
         public async Task ToggleFavoriteAsync(int itemId)
         {
             try
@@ -191,13 +138,9 @@ namespace FoodAndDrink.Services
                     await db.UpdateAsync(item);
                 }
             }
-            catch (SQLiteException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] DB Error: {ex.Message}");
-            }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] Unexpected: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"[FoodItemService] ToggleFavorite: {ex.Message}");
             }
         }
 
@@ -241,21 +184,13 @@ namespace FoodAndDrink.Services
                 await FillIconEmojiAsync(result);
                 return result;
             }
-            catch (SQLiteException ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] DB Error: {ex.Message}");
-                return new List<FoodItem>();
-            }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[FoodItemService] Unexpected: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"[FoodItemService] GetRecentlyViewed: {ex.Message}");
                 return new List<FoodItem>();
             }
         }
 
-        /// <summary>
-        /// Clears the ViewedAt timestamp on all items, resetting the recently-viewed list.
-        /// </summary>
         public async Task ClearRecentlyViewedAsync()
         {
             try
@@ -300,10 +235,6 @@ namespace FoodAndDrink.Services
             }
         }
 
-        /// <summary>
-        /// Populates the IconEmoji property on each item by looking up its category.
-        /// Fails silently — emoji is a cosmetic enhancement.
-        /// </summary>
         private async Task FillIconEmojiAsync(List<FoodItem> items)
         {
             if (items.Count == 0)
@@ -323,7 +254,6 @@ namespace FoodAndDrink.Services
             }
             catch
             {
-                // Silently ignore — IconEmoji is cosmetic
             }
         }
 

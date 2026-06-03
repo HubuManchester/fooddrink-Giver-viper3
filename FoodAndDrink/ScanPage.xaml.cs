@@ -22,11 +22,9 @@ namespace FoodAndDrink
             base.OnAppearing();
             _hasScanned = false;
 
-            // Start ZXing camera after a short delay to let the view initialize
             await Task.Delay(500);
             StartCamera();
 
-            // Ensure flashlight starts off (using ZXing's built-in torch)
             _isFlashlightOn = false;
             BarcodeReader.IsTorchOn = false;
             FlashlightBtn.Text = "🔦 Flashlight";
@@ -38,7 +36,6 @@ namespace FoodAndDrink
             base.OnDisappearing();
             StopCamera();
 
-            // Ensure flashlight is off when leaving (using ZXing's built-in torch)
             try { BarcodeReader.IsTorchOn = false; } catch { }
         }
 
@@ -69,10 +66,6 @@ namespace FoodAndDrink
             }
         }
 
-        /// <summary>
-        /// Toggles the device flashlight on/off.
-        /// Uses the Flashlight API — counts as mobile hardware usage (hardware #3).
-        /// </summary>
         private void OnFlashlightClicked(object sender, EventArgs e)
         {
             try
@@ -89,7 +82,7 @@ namespace FoodAndDrink
                     BarcodeReader.IsTorchOn = true;
                     _isFlashlightOn = true;
                     FlashlightBtn.Text = "💡 Flashlight On";
-                    FlashlightBtn.BackgroundColor = Color.FromArgb("#E8A317"); // Tertiary gold
+                    FlashlightBtn.BackgroundColor = Color.FromArgb("#E8A317");
                 }
             }
             catch (Exception ex)
@@ -99,10 +92,6 @@ namespace FoodAndDrink
             }
         }
 
-        /// <summary>
-        /// Called by ZXing when a barcode is detected in the camera feed.
-        /// Stops scanning, vibrates, and navigates to the matching item.
-        /// </summary>
         private async void OnBarcodesDetected(object sender, BarcodeDetectionEventArgs e)
         {
             if (_hasScanned) return;
@@ -110,11 +99,9 @@ namespace FoodAndDrink
 
             try
             {
-                // Vibrate on successful scan
                 try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
                 catch { }
 
-                // Get first detected barcode
                 var detected = e.Results?.FirstOrDefault();
                 if (detected == null)
                 {
@@ -133,7 +120,6 @@ namespace FoodAndDrink
                     return;
                 }
 
-                // Try to match barcode to an item
                 var allItems = await _foodItemService.GetAllAsync();
                 var matched = allItems.FirstOrDefault(i =>
                     i.Name.Contains(barcodeValue, StringComparison.OrdinalIgnoreCase) ||

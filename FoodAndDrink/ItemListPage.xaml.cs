@@ -31,7 +31,6 @@ namespace FoodAndDrink
                 if (!string.IsNullOrEmpty(value))
                 {
                     _sortBy = value;
-                    // Sync the Picker UI with the actual sort order
                     SortPicker.SelectedIndex = value switch
                     {
                         "distance" => 2,
@@ -74,7 +73,6 @@ namespace FoodAndDrink
             var categories = await _categoryService.GetAllAsync();
             CategoryChips.Children.Clear();
 
-            // "All" chip
             var allChip = CreateChip("All", isSelected: _selectedCategoryId == null);
             var tapAll = new TapGestureRecognizer();
             tapAll.Tapped += async (s, e) =>
@@ -140,7 +138,6 @@ namespace FoodAndDrink
                 filter.Cuisine = null;
                 _allItems = await _foodItemService.SearchAsync(ListSearchBar.Text.Trim());
 
-                // Apply in-memory filters on search results
                 if (filter.CategoryId.HasValue)
                     _allItems = _allItems.Where(i => i.CategoryId == filter.CategoryId.Value).ToList();
                 if (!string.IsNullOrEmpty(filter.PriceTier))
@@ -173,7 +170,7 @@ namespace FoodAndDrink
             if (string.IsNullOrWhiteSpace(ListSearchBar.Text))
             {
                 try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
-                catch { }
+                catch { /* vibration unavailable */ }
                 return;
             }
             await LoadItems();
@@ -210,10 +207,7 @@ namespace FoodAndDrink
         {
             if (e.Parameter is int itemId)
             {
-                try
-                {
-                    HapticFeedback.Default.Perform(HapticFeedbackType.Click);
-                }
+                try { HapticFeedback.Default.Perform(HapticFeedbackType.Click); }
                 catch { }
 
                 await _foodItemService.ToggleFavoriteAsync(itemId);

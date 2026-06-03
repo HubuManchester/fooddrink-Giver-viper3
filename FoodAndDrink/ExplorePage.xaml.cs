@@ -33,7 +33,6 @@ namespace FoodAndDrink
                 BindableLayout.SetItemsSource(PopularStack, popularItems);
                 BindableLayout.SetItemsSource(RecentStack, recentItems);
 
-                // Show empty state if no data at all
                 EmptyState.IsVisible = categories.Count == 0 && popularItems.Count == 0 && recentItems.Count == 0;
             }
             catch (Exception ex)
@@ -59,10 +58,6 @@ namespace FoodAndDrink
             }
         }
 
-        /// <summary>
-        /// Opens the device camera to capture a photo of a dish.
-        /// Uses MediaPicker API with permission handling.
-        /// </summary>
         private async void OnCameraScanClicked(object sender, EventArgs e)
         {
             try
@@ -84,12 +79,11 @@ namespace FoodAndDrink
                     }
                 }
 
-                // Vibrate on capture
                 var photo = await MediaPicker.Default.CapturePhotoAsync();
                 if (photo != null)
                 {
                     try { HapticFeedback.Default.Perform(HapticFeedbackType.Click); }
-                    catch { /* Haptic not supported */ }
+                    catch { }
 
                     await DisplayAlert("Photo Captured",
                         "Photo saved! In a production app, this would use AI image recognition to identify the dish and show its details.",
@@ -107,10 +101,6 @@ namespace FoodAndDrink
             }
         }
 
-        /// <summary>
-        /// Navigates to the barcode scanner page which uses ZXing
-        /// to read barcodes/QR codes via the device camera.
-        /// </summary>
         private async void OnBarcodeScanClicked(object sender, EventArgs e)
         {
             try
@@ -136,18 +126,11 @@ namespace FoodAndDrink
             }
         }
 
-        /// <summary>
-        /// Navigates to the full item list sorted by rating when "See All" is tapped
-        /// in the Popular This Week section.
-        /// </summary>
         private async void OnPopularSeeAllClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("ItemListPage?sortBy=rating");
         }
 
-        /// <summary>
-        /// Clears all recently viewed items from the tracked list.
-        /// </summary>
         private async void OnClearRecentClicked(object sender, EventArgs e)
         {
             try
@@ -169,7 +152,7 @@ namespace FoodAndDrink
             if (string.IsNullOrWhiteSpace(keyword))
             {
                 try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
-                catch { }
+                catch { /* no vibration on this device */ }
                 return;
             }
 

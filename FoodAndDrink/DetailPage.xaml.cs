@@ -51,7 +51,6 @@ namespace FoodAndDrink
                 CuisineValue.Text = _item.Cuisine;
                 CaloriesValue.Text = $"{_item.Calories} kcal";
                 AllergensValue.Text = string.IsNullOrEmpty(_item.Allergens) ? "None" : _item.Allergens;
-                // Allergens color: green (safe) or warning, adapts to dark mode
                 var isDark = Application.Current?.RequestedTheme == AppTheme.Dark;
                 AllergensValue.TextColor = string.IsNullOrEmpty(_item.Allergens)
                     ? (Color)Application.Current!.Resources[isDark ? "SecondaryDark" : "Secondary"]
@@ -60,7 +59,6 @@ namespace FoodAndDrink
 
                 if (ct.IsCancellationRequested) return;
 
-                // Hero content
                 HeroImageContent.Source = _item.ImageUrl;
                 var colors = new[] { "PrimaryLight", "SecondaryLight", "TertiaryLight" };
                 HeroImage.BackgroundColor = (Color)Application.Current!.Resources[colors[_item.CategoryId % colors.Length]];
@@ -85,36 +83,24 @@ namespace FoodAndDrink
                 : (Color)Application.Current!.Resources["PrimaryLight"];
         }
 
-        /// <summary>
-        /// Toggles the favorite status of the current item with haptic feedback.
-        /// </summary>
         private async void OnFavoriteClicked(object sender, EventArgs e)
         {
             if (_item is null) return;
 
-            try
-            {
-                // Vibration feedback on favorite toggle
-                HapticFeedback.Default.Perform(HapticFeedbackType.Click);
-            }
-            catch { /* Haptic not supported */ }
+            try { HapticFeedback.Default.Perform(HapticFeedbackType.Click); }
+            catch { }
 
             await _foodItemService.ToggleFavoriteAsync(_item.Id);
             _item.IsFavorite = !_item.IsFavorite;
             UpdateFavoriteButton();
         }
 
-        /// <summary>
-        /// Uses Text-to-Speech to read aloud the item description and allergens.
-        /// This fulfills the "specialist on-board mobile hardware" requirement (LO2).
-        /// </summary>
         private async void OnReadAloudClicked(object sender, EventArgs e)
         {
             if (_item is null) return;
 
             try
             {
-                // Check if TTS is available on this device
                 var locales = await TextToSpeech.Default.GetLocalesAsync();
                 if (locales is null || !locales.Any())
                 {
@@ -170,16 +156,12 @@ namespace FoodAndDrink
             }
         }
 
-        /// <summary>
-        /// Opens a food delivery search for this item using the device browser.
-        /// Falls back to a web search if the delivery platform deep link fails.
-        /// </summary>
         private async void OnOrderClicked(object sender, EventArgs e)
         {
             if (_item is null) return;
 
             try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
-            catch { /* Haptic not supported */ }
+            catch { }
 
             bool confirm = await DisplayAlert("Order Now",
                 $"Order {_item.Name}?\nPrice: ¥{_item.Price:F0}",
@@ -190,15 +172,13 @@ namespace FoodAndDrink
             try
             {
                 try { HapticFeedback.Default.Perform(HapticFeedbackType.Click); }
-                catch { /* Haptic not supported */ }
+                catch { }
 
-                // Try opening food delivery deep link first (Meituan Waimai)
                 var deepLink = $"meituanwaimai://waimai.meituan.com/search?keyword={Uri.EscapeDataString(_item.Name)}";
                 var opened = await Launcher.Default.TryOpenAsync(deepLink);
 
                 if (!opened)
                 {
-                    // Fallback: open browser search for the dish
                     var searchUrl = $"https://www.google.com/search?q={Uri.EscapeDataString(_item.Name + " order delivery")}";
                     await Browser.Default.OpenAsync(searchUrl, BrowserLaunchMode.SystemPreferred);
                 }
@@ -212,11 +192,6 @@ namespace FoodAndDrink
             }
         }
 
-        /// <summary>
-        /// Opens the device's native maps app with a search for this item's location.
-        /// Uses Map.OpenAsync with the item's subtitle (city/region) and name.
-        /// Falls back to web maps if native maps are unavailable.
-        /// </summary>
         private async void OnDirectionsClicked(object sender, EventArgs e)
         {
             if (_item is null) return;
@@ -224,7 +199,7 @@ namespace FoodAndDrink
             try
             {
                 try { HapticFeedback.Default.Perform(HapticFeedbackType.Click); }
-                catch { /* Haptic not supported */ }
+                catch { }
 
                 var placeName = $"{_item.Name} {_item.Subtitle}";
                 var placeLocation = new Placemark { Thoroughfare = placeName };
@@ -239,7 +214,6 @@ namespace FoodAndDrink
                 }
                 catch (Exception)
                 {
-                    // Fallback: open web maps if native maps fail
                     var mapsUrl = $"https://www.google.com/maps/search/{Uri.EscapeDataString(placeName)}";
                     await Browser.Default.OpenAsync(mapsUrl, BrowserLaunchMode.SystemPreferred);
                 }

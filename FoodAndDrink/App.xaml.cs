@@ -8,7 +8,6 @@ namespace FoodAndDrink
         {
             InitializeComponent();
 
-            // Initialize font scale resources from saved preference
             FontScaleService.InitResources();
 
             MainPage = new AppShell();

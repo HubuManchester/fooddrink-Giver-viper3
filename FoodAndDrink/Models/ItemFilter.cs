@@ -7,7 +7,6 @@ namespace FoodAndDrink.Models
         public double? MinRating { get; set; }
         public double? MaxDistance { get; set; }
         public string? Cuisine { get; set; }
-        public string? Dietary { get; set; }
         public string? SortBy { get; set; }
     }
 }

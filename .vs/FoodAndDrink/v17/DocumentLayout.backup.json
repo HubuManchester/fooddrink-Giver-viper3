@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "G:\\Mobile\\Assessment\\FoodAndDrink\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\locationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\locationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\fontscaleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\fontscaleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\fooditemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\fooditemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\services\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|g:\\mobile\\assessment\\foodanddrink\\foodanddrink\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0747213-4288-49B8-87DF-2D0657001E09}|FoodAndDrink\\FoodAndDrink.csproj|solutionrelative:foodanddrink\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -33,6 +53,71 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\CategoryService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\CategoryService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\CategoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:57:57.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DatabaseService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\DatabaseService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\DatabaseService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\DatabaseService.cs*",
+              "RelativeToolTip": "FoodAndDrink\\Services\\DatabaseService.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:57:01.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FontScaleService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\FontScaleService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\FontScaleService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\FontScaleService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\FontScaleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:56:57.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LocationService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\LocationService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\LocationService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\LocationService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\LocationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:56:55.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FoodItemService.cs",
+              "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\FoodItemService.cs",
+              "RelativeDocumentMoniker": "FoodAndDrink\\Services\\FoodItemService.cs",
+              "ToolTip": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\Services\\FoodItemService.cs",
+              "RelativeToolTip": "FoodAndDrink\\Services\\FoodItemService.cs",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-03T02:56:44.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "MauiProgram.cs",
               "DocumentMoniker": "G:\\Mobile\\Assessment\\FoodAndDrink\\FoodAndDrink\\MauiProgram.cs",
               "RelativeDocumentMoniker": "FoodAndDrink\\MauiProgram.cs",

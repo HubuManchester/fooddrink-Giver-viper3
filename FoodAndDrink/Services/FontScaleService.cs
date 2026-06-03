@@ -7,7 +7,6 @@ namespace FoodAndDrink.Services
         private const double MinScale = 0.8;
         private const double MaxScale = 1.4;
 
-        // Base font sizes (before scaling)
         private static readonly Dictionary<string, double> BaseSizes = new()
         {
             ["HeroFontSize"] = 32,

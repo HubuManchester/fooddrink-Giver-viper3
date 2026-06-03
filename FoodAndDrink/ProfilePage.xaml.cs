@@ -19,11 +19,9 @@ namespace FoodAndDrink
             base.OnAppearing();
             await LoadStatsAsync();
 
-            // Sync slider to current scale
             TextSizeSlider.Value = _fontScale.GetSliderValue();
             TextSizeLabel.Text = _fontScale.GetScaleLabel();
 
-            // Sync dark mode switch with actual app theme
             DarkModeSwitch.IsToggled = Application.Current?.UserAppTheme == AppTheme.Dark;
         }
 
@@ -58,7 +56,6 @@ namespace FoodAndDrink
             bool confirm = await DisplayAlert("Log Out", "Are you sure you want to log out?", "Log Out", "Cancel");
             if (confirm)
             {
-                // Reset to home page and clear navigation stack
                 await Shell.Current.GoToAsync("//MainPage");
             }
         }

@@ -49,10 +49,6 @@ namespace FoodAndDrink
             }
         }
 
-        /// <summary>
-        /// Navigates to the explore page when the "Explore Dishes" button is tapped
-        /// in the empty favorites state.
-        /// </summary>
         private async void OnExploreDishesClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//ExplorePage");
@@ -62,14 +58,8 @@ namespace FoodAndDrink
         {
             if (e.Parameter is int itemId)
             {
-                try
-                {
-                    HapticFeedback.Default.Perform(HapticFeedbackType.Click);
-                }
-                catch
-                {
-                    // haptic not supported
-                }
+                try { HapticFeedback.Default.Perform(HapticFeedbackType.Click); }
+                catch { }
 
                 await _foodItemService.ToggleFavoriteAsync(itemId);
                 await LoadFavoritesAsync();
