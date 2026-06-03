@@ -76,7 +76,7 @@
                                                                            Dark={StaticResource TextDimDark}}" />
                                         <HorizontalStackLayout Spacing="6">
                                             <Label FontSize="12" FontAttributes="Bold"
-                                                   TextColor="{StaticResource Tertiary}">
+                                                   TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}">
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text="★ " />

@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui.Core;
 using FoodAndDrink.Models;
 using FoodAndDrink.Services;
 
@@ -52,10 +51,11 @@ namespace FoodAndDrink
                 CuisineValue.Text = _item.Cuisine;
                 CaloriesValue.Text = $"{_item.Calories} kcal";
                 AllergensValue.Text = string.IsNullOrEmpty(_item.Allergens) ? "None" : _item.Allergens;
-                // Green for no allergens, warning color only when allergens are present
+                // Allergens color: green (safe) or warning, adapts to dark mode
+                var isDark = Application.Current?.RequestedTheme == AppTheme.Dark;
                 AllergensValue.TextColor = string.IsNullOrEmpty(_item.Allergens)
-                    ? (Color)Application.Current!.Resources["Secondary"]
-                    : (Color)Application.Current!.Resources["Warning"];
+                    ? (Color)Application.Current!.Resources[isDark ? "SecondaryDark" : "Secondary"]
+                    : (Color)Application.Current!.Resources[isDark ? "TertiaryDark" : "Warning"];
                 AvailableValue.Text = _item.AvailableTime;
 
                 if (ct.IsCancellationRequested) return;
@@ -78,9 +78,10 @@ namespace FoodAndDrink
         {
             if (_item is null) return;
 
+            var isDark = Application.Current?.RequestedTheme == AppTheme.Dark;
             FavoriteBtnContent.Text = _item.IsFavorite ? "♥" : "♡";
             FavoriteBtn.BackgroundColor = _item.IsFavorite
-                ? (Color)Application.Current!.Resources["Primary"]
+                ? (Color)Application.Current!.Resources[isDark ? "PrimaryDark" : "Primary"]
                 : (Color)Application.Current!.Resources["PrimaryLight"];
         }
 
@@ -113,6 +114,17 @@ namespace FoodAndDrink
 
             try
             {
+                // Check if TTS is available on this device
+                var locales = await TextToSpeech.Default.GetLocalesAsync();
+                if (locales is null || !locales.Any())
+                {
+                    await DisplayAlert("Not Available",
+                        "No text-to-speech engine found on this device.\n\n" +
+                        "Please install a TTS engine (e.g. Google Text-to-Speech) from your app store, " +
+                        "then try again.", "OK");
+                    return;
+                }
+
                 var textToRead = $"{_item.Name}. {_item.Description}. ";
 
                 if (!string.IsNullOrEmpty(_item.Allergens))

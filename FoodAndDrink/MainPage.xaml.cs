@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui.Core;
 using FoodAndDrink.Models;
 using FoodAndDrink.Services;
 
@@ -145,7 +144,8 @@ namespace FoodAndDrink
             var keyword = MainSearchBar.Text?.Trim();
             if (string.IsNullOrWhiteSpace(keyword))
             {
-                await DisplayAlert("Search", "Please enter a search term.", "OK");
+                try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
+                catch { }
                 return;
             }
 

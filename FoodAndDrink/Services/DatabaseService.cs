@@ -5,7 +5,7 @@ namespace FoodAndDrink.Services
 {
     /// <summary>
     /// Manages the SQLite database lifecycle: creation, table setup, and seed data.
-    /// Registered as a singleton in DI to ensure a single database connection path.
+    /// Registered as a singleton in DI to ensure a single database conn0ection path.
     /// </summary>
     public class DatabaseService
     {

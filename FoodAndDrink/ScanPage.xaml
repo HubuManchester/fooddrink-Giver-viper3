@@ -7,55 +7,75 @@
              Title="Scan Barcode">
 
     <Grid RowDefinitions="*,Auto"
-          BackgroundColor="{AppThemeBinding Light={StaticResource Black},
-                                            Dark={StaticResource Black}}">
+          BackgroundColor="Black">
 
-        <!-- Barcode Scanner View -->
+        <!-- ZXing Barcode Scanner -->
         <zxing:CameraBarcodeReaderView Grid.Row="0"
             x:Name="BarcodeReader"
+            CameraLocation="Rear"
             BarcodesDetected="OnBarcodesDetected"
-            IsDetecting="True" />
+            IsDetecting="False"
+            AutomationProperties.Name="Barcode scanner camera view"
+            AutomationProperties.HelpText="Point the camera at a barcode or QR code to scan" />
 
-        <!-- Overlay hint -->
-        <VerticalStackLayout Grid.Row="0"
-                             VerticalOptions="Center"
-                             HorizontalOptions="Center"
-                             Spacing="16">
-            <BoxView WidthRequest="250" HeightRequest="250"
-                     CornerRadius="16"
-                     Color="Transparent"
-                     Opacity="0" />
-            <Label Text="Point camera at a barcode or QR code"
-                   FontSize="{DynamicResource MediumFontSize}"
-                   TextColor="White"
-                   HorizontalOptions="Center"
-                   Opacity="0.8" />
-        </VerticalStackLayout>
+        <!-- Scanning frame overlay -->
+        <Frame Grid.Row="0"
+               WidthRequest="250" HeightRequest="250"
+               CornerRadius="16"
+               HasShadow="False"
+               BackgroundColor="Transparent"
+               BorderColor="White"
+               Opacity="0.4"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <!-- Hint text -->
+        <Label Grid.Row="0"
+               Text="Point camera at a barcode or QR code"
+               FontSize="{DynamicResource MediumFontSize}"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               Margin="0,0,0,180"
+               Opacity="0.7"
+               AutomationProperties.Name="Scanning hint"
+               AutomationProperties.HelpText="Point the camera at a barcode or QR code to scan automatically" />
 
         <!-- Bottom bar -->
-        <Frame Grid.Row="1"
-               BackgroundColor="{StaticResource Black}"
-               BorderColor="Transparent"
-               CornerRadius="0" Padding="28,16" HasShadow="False">
-            <Grid ColumnDefinitions="Auto,*,*" ColumnSpacing="12">
-                <Button Grid.Column="0"
-                        x:Name="FlashlightBtn"
-                        Text="🔦"
-                        WidthRequest="48" HeightRequest="48"
-                        CornerRadius="14"
-                        BackgroundColor="{StaticResource Gray100}"
-                        TextColor="White"
-                        Clicked="OnFlashlightClicked" />
-                <Button Grid.Column="2"
-                        Text="Cancel"
-                        BackgroundColor="{StaticResource Gray100}"
-                        TextColor="White"
-                        CornerRadius="14" HeightRequest="48"
-                        HorizontalOptions="End"
-                        WidthRequest="120"
-                        Clicked="OnCancelClicked" />
-            </Grid>
-        </Frame>
+        <Grid Grid.Row="1"
+              ColumnDefinitions="Auto,*,Auto"
+              ColumnSpacing="12"
+              Padding="28,16"
+              BackgroundColor="#1A1A1A">
+
+            <!-- Flashlight toggle -->
+            <Button Grid.Column="0"
+                    x:Name="FlashlightBtn"
+                    Text="🔦 Flashlight"
+                    HeightRequest="44"
+                    CornerRadius="12"
+                    Padding="14,8"
+                    FontSize="13"
+                    BackgroundColor="#3A3A3A"
+                    TextColor="White"
+                    BorderColor="Transparent"
+                    AutomationProperties.Name="Flashlight toggle"
+                    AutomationProperties.HelpText="Turn the camera flash on or off for better scanning in low light"
+                    Clicked="OnFlashlightClicked" />
+
+            <!-- Cancel -->
+            <Button Grid.Column="2"
+                    Text="Cancel"
+                    HeightRequest="44" WidthRequest="100"
+                    CornerRadius="12"
+                    FontSize="13"
+                    BackgroundColor="#3A3A3A"
+                    TextColor="White"
+                    BorderColor="Transparent"
+                    AutomationProperties.Name="Cancel scanning"
+                    AutomationProperties.HelpText="Return to the previous page"
+                    Clicked="OnCancelClicked" />
+        </Grid>
     </Grid>
 
 </ContentPage>

@@ -71,14 +71,14 @@
         </member>
         <member name="M:FoodAndDrink.ScanPage.OnFlashlightClicked(System.Object,System.EventArgs)">
             <summary>
-            Toggles the device flashlight on/off for barcode scanning in low light.
-            Uses the Flashlight API — counts as mobile hardware usage.
+            Toggles the device flashlight on/off.
+            Uses the Flashlight API — counts as mobile hardware usage (hardware #3).
             </summary>
         </member>
         <member name="M:FoodAndDrink.ScanPage.OnBarcodesDetected(System.Object,ZXing.Net.Maui.BarcodeDetectionEventArgs)">
             <summary>
-            Handles barcode detection events from ZXing camera view.
-            On first detection, vibrates, stops scanning, and shows the scanned value.
+            Called by ZXing when a barcode is detected in the camera feed.
+            Stops scanning, vibrates, and navigates to the matching item.
             </summary>
         </member>
         <member name="T:FoodAndDrink.Services.CategoryService">
@@ -90,7 +90,7 @@
         <member name="T:FoodAndDrink.Services.DatabaseService">
             <summary>
             Manages the SQLite database lifecycle: creation, table setup, and seed data.
-            Registered as a singleton in DI to ensure a single database connection path.
+            Registered as a singleton in DI to ensure a single database conn0ection path.
             </summary>
         </member>
         <member name="M:FoodAndDrink.Services.DatabaseService.GetDbAsync">

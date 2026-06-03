@@ -580,7 +580,6 @@ G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\assets\ZXing.Net.MAUI.Controls.dll
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\assets\ZXing.Net.MAUI.dll
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\assets\_Microsoft.Android.Resource.Designer.dll
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\typemaps.x86_64.ll
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\AndroidManifest.xml
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\AndroidManifest.xml
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\src\mono\MonoRuntimeProvider.java
@@ -590,7 +589,6 @@ G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\static.flag
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\__environment__.txt
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\buildid.txt
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\environment.x86_64.ll
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\src\androidx\activity\ktx\R.java
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\src\androidx\activity\R.java
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\src\androidx\annotation\experimental\R.java
@@ -1105,13 +1103,6 @@ G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\bin\packaged_resources
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\src\com\companyname\foodanddrink\R.java
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\_CompileJava.FileList.txt
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\compressed_assemblies.x86_64.ll
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\typemaps.x86_64.o
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\environment.x86_64.o
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\compressed_assemblies.x86_64.o
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\marshal_methods.x86_64.o
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\jni_remap.x86_64.o
-G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\app_shared_libraries\x86_64\libxamarin-app.so
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\bin\classes.dex
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\bin\classes2.dex
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\stamp\_CleanIntermediateIfNeeded.stamp
@@ -1122,3 +1113,12 @@ G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\stamp\_C
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\stamp\_GenerateJavaStubs.stamp
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\stamp\_GeneratePackageManagerJava.stamp
 G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\typemaps.x86_64.ll
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\environment.x86_64.ll
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\compressed_assemblies.x86_64.ll
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\typemaps.x86_64.o
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\environment.x86_64.o
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\compressed_assemblies.x86_64.o
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\marshal_methods.x86_64.o
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\android\jni_remap.x86_64.o
+G:\Mobile\Assessment\FoodAndDrink\FoodAndDrink\obj\Debug\net8.0-android\app_shared_libraries\x86_64\libxamarin-app.so

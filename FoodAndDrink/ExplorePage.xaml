@@ -195,7 +195,7 @@
                                                                                Dark={StaticResource TextDark}}" />
                                             <HorizontalStackLayout Spacing="4">
                                                 <Label Text="★" FontSize="12"
-                                                       TextColor="{StaticResource Tertiary}" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}" />
                                                 <Label Text="{Binding Rating, StringFormat='{0:F1}'}"
                                                        FontSize="12"
                                                        TextColor="{AppThemeBinding Light={StaticResource TextDimLight},

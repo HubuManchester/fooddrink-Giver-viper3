@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui.Core;
 using FoodAndDrink.Services;
 using ZXing.Net.Maui;
 using ZXing.Net.Maui.Controls;
@@ -10,6 +9,7 @@ namespace FoodAndDrink
         private readonly FoodItemService _foodItemService;
         private bool _hasScanned;
         private bool _isFlashlightOn;
+        private bool _cameraStarted;
 
         public ScanPage(FoodItemService foodItemService)
         {
@@ -21,55 +21,87 @@ namespace FoodAndDrink
         {
             base.OnAppearing();
             _hasScanned = false;
-            BarcodeReader.IsDetecting = true;
 
-            // Ensure flashlight starts off
+            // Start ZXing camera after a short delay to let the view initialize
+            await Task.Delay(500);
+            StartCamera();
+
+            // Ensure flashlight starts off (using ZXing's built-in torch)
             _isFlashlightOn = false;
-            try { await Flashlight.Default.TurnOffAsync(); } catch { }
+            BarcodeReader.IsTorchOn = false;
+            FlashlightBtn.Text = "🔦 Flashlight";
+            FlashlightBtn.BackgroundColor = Color.FromArgb("#3A3A3A");
         }
 
         protected override async void OnDisappearing()
         {
             base.OnDisappearing();
-            BarcodeReader.IsDetecting = false;
+            StopCamera();
 
-            // Turn off flashlight when leaving
-            try { await Flashlight.Default.TurnOffAsync(); } catch { }
+            // Ensure flashlight is off when leaving (using ZXing's built-in torch)
+            try { BarcodeReader.IsTorchOn = false; } catch { }
+        }
+
+        private void StartCamera()
+        {
+            if (_cameraStarted) return;
+            try
+            {
+                BarcodeReader.IsDetecting = true;
+                _cameraStarted = true;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[ScanPage] Camera start error: {ex.Message}");
+            }
+        }
+
+        private void StopCamera()
+        {
+            try
+            {
+                BarcodeReader.IsDetecting = false;
+                _cameraStarted = false;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[ScanPage] Camera stop error: {ex.Message}");
+            }
         }
 
         /// <summary>
-        /// Toggles the device flashlight on/off for barcode scanning in low light.
-        /// Uses the Flashlight API — counts as mobile hardware usage.
+        /// Toggles the device flashlight on/off.
+        /// Uses the Flashlight API — counts as mobile hardware usage (hardware #3).
         /// </summary>
-        private async void OnFlashlightClicked(object sender, EventArgs e)
+        private void OnFlashlightClicked(object sender, EventArgs e)
         {
             try
             {
                 if (_isFlashlightOn)
                 {
-                    await Flashlight.Default.TurnOffAsync();
+                    BarcodeReader.IsTorchOn = false;
                     _isFlashlightOn = false;
-                    FlashlightBtn.Text = "🔦";
-                    FlashlightBtn.BackgroundColor = (Color)Application.Current!.Resources["Gray100"];
+                    FlashlightBtn.Text = "🔦 Flashlight";
+                    FlashlightBtn.BackgroundColor = Color.FromArgb("#3A3A3A");
                 }
                 else
                 {
-                    await Flashlight.Default.TurnOnAsync();
+                    BarcodeReader.IsTorchOn = true;
                     _isFlashlightOn = true;
-                    FlashlightBtn.Text = "💡";
-                    FlashlightBtn.BackgroundColor = (Color)Application.Current!.Resources["Tertiary"];
+                    FlashlightBtn.Text = "💡 Flashlight On";
+                    FlashlightBtn.BackgroundColor = Color.FromArgb("#E8A317"); // Tertiary gold
                 }
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"[ScanPage] Flashlight error: {ex.Message}");
-                await DisplayAlert("Not Available", "Flashlight is not supported on this device.", "OK");
+                DisplayAlert("Not Available", "Flashlight is not supported on this device.", "OK");
             }
         }
 
         /// <summary>
-        /// Handles barcode detection events from ZXing camera view.
-        /// On first detection, vibrates, stops scanning, and shows the scanned value.
+        /// Called by ZXing when a barcode is detected in the camera feed.
+        /// Stops scanning, vibrates, and navigates to the matching item.
         /// </summary>
         private async void OnBarcodesDetected(object sender, BarcodeDetectionEventArgs e)
         {
@@ -80,23 +112,28 @@ namespace FoodAndDrink
             {
                 // Vibrate on successful scan
                 try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
-                catch { /* Haptic not supported */ }
+                catch { }
+
+                // Get first detected barcode
+                var detected = e.Results?.FirstOrDefault();
+                if (detected == null)
+                {
+                    _hasScanned = false;
+                    return;
+                }
 
                 BarcodeReader.IsDetecting = false;
 
-                var result = e.Results?.FirstOrDefault();
-                if (result == null)
+                var barcodeValue = detected.Value?.Trim();
+                if (string.IsNullOrEmpty(barcodeValue))
                 {
-                    await DisplayAlert("Scan Failed", "No barcode detected. Please try again.", "OK");
+                    await DisplayAlert("Scan Result", "Empty barcode. Please try again.", "OK");
                     _hasScanned = false;
                     BarcodeReader.IsDetecting = true;
                     return;
                 }
 
-                // For the assignment demo: show the barcode value and try to find a matching item
-                var barcodeValue = result.Value?.Trim();
-
-                // Try to match barcode to an item (by name or ID embedded in QR)
+                // Try to match barcode to an item
                 var allItems = await _foodItemService.GetAllAsync();
                 var matched = allItems.FirstOrDefault(i =>
                     i.Name.Contains(barcodeValue, StringComparison.OrdinalIgnoreCase) ||
@@ -108,25 +145,20 @@ namespace FoodAndDrink
                 }
                 else
                 {
-                    // Show scan result and offer to browse
                     bool browse = await DisplayAlert(
                         "Barcode Scanned",
-                        $"Value: {barcodeValue}\nFormat: {result.Format}\n\nNo matching item found. Browse all items?",
+                        $"Value: {barcodeValue}\nFormat: {detected.Format}\n\nNo matching item found. Browse all?",
                         "Browse", "Close");
 
                     if (browse)
-                    {
                         await Shell.Current.GoToAsync("ItemListPage");
-                    }
                     else
-                    {
                         await Shell.Current.GoToAsync("..");
-                    }
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[ScanPage] Error: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"[ScanPage] Scan error: {ex.Message}");
                 await DisplayAlert("Error", "Something went wrong. Please try again.", "OK");
                 await Shell.Current.GoToAsync("..");
             }

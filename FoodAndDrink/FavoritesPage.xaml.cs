@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui.Core;
 using FoodAndDrink.Services;
 
 namespace FoodAndDrink

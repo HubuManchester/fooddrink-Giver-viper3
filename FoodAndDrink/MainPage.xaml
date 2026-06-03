@@ -175,7 +175,7 @@
                                                                                Dark={StaticResource TextDimDark}}" />
                                             <HorizontalStackLayout Spacing="4">
                                                 <Label Text="★" FontSize="13"
-                                                       TextColor="{StaticResource Tertiary}" />
+                                                       TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}" />
                                                 <Label Text="{Binding Rating, StringFormat='{0:F1}'}"
                                                        FontSize="12"
                                                        TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
@@ -273,7 +273,7 @@
                                                                                Dark={StaticResource TextDimDark}}" />
                                             <HorizontalStackLayout Spacing="6">
                                                 <Label FontSize="12" FontAttributes="Bold"
-                                                       TextColor="{StaticResource Tertiary}">
+                                                       TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}">
                                                     <Label.FormattedText>
                                                         <FormattedString>
                                                             <Span Text="★ " />
@@ -303,7 +303,7 @@
                                             <Label Text="♡" FontSize="18"
                                                    HorizontalOptions="Center"
                                                    VerticalOptions="Center"
-                                                   TextColor="{StaticResource Primary}" />
+                                                   TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
                                         </Frame>
                                     </Grid>
                                 </Frame>

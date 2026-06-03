@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui.Core;
 using FoodAndDrink.Models;
 using FoodAndDrink.Services;
 
@@ -105,11 +104,12 @@ namespace FoodAndDrink
 
         private static Frame CreateChip(string text, bool isSelected = false)
         {
+            var isDark = Application.Current?.RequestedTheme == AppTheme.Dark;
             return new Frame
             {
                 BackgroundColor = isSelected
-                    ? (Color)Application.Current!.Resources["Primary"]
-                    : (Color)Application.Current!.Resources["BorderLight"],
+                    ? (Color)Application.Current!.Resources[isDark ? "PrimaryDark" : "Primary"]
+                    : (Color)Application.Current!.Resources[isDark ? "SurfaceDark" : "BorderLight"],
                 BorderColor = Colors.Transparent,
                 CornerRadius = 20,
                 Padding = new Thickness(18, 10),
@@ -119,7 +119,9 @@ namespace FoodAndDrink
                     Text = text,
                     FontSize = 14,
                     FontAttributes = FontAttributes.Bold,
-                    TextColor = isSelected ? Colors.White : (Color)Application.Current!.Resources["TextLight"]
+                    TextColor = isSelected
+                        ? Colors.White
+                        : (Color)Application.Current!.Resources[isDark ? "TextDark" : "TextLight"]
                 }
             };
         }
@@ -170,7 +172,8 @@ namespace FoodAndDrink
         {
             if (string.IsNullOrWhiteSpace(ListSearchBar.Text))
             {
-                await DisplayAlert("Search", "Please enter a search term.", "OK");
+                try { HapticFeedback.Default.Perform(HapticFeedbackType.LongPress); }
+                catch { }
                 return;
             }
             await LoadItems();

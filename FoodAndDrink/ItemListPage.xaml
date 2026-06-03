@@ -99,10 +99,10 @@
                                                                    Dark={StaticResource TextDimDark}}" />
                                 <HorizontalStackLayout Spacing="6">
                                     <Label Text="★" FontSize="12"
-                                           TextColor="{StaticResource Tertiary}" />
+                                           TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}" />
                                     <Label Text="{Binding Rating, StringFormat='{0:F1}'}"
                                            FontSize="12" FontAttributes="Bold"
-                                           TextColor="{StaticResource Tertiary}" />
+                                           TextColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}" />
                                     <Label Text="{Binding ReviewCount, StringFormat='({0})'}"
                                            FontSize="12"
                                            TextColor="{AppThemeBinding Light={StaticResource TextDimLight},
@@ -132,7 +132,7 @@
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"
                                        AutomationProperties.Name="Favorite button"
-                                       TextColor="{StaticResource Primary}" />
+                                       TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
                             </Frame>
                         </Grid>
                     </Frame>
